@@ -1,0 +1,19 @@
+Preparación de la primera publicación 1.0.0 (build 10), sin afirmar revisión legal ni aprobación de las tiendas:
+- La política de privacidad es https://chorejar-liisgo-2026.web.app/privacy y soporte es https://chorejar-liisgo-2026.web.app/support. El correo público verificado del desarrollador es sales@liisgo.com.
+- Android release exige la clave de subida del propietario en android/key.properties; la compilación falla intencionalmente si falta. Nunca usar firma de depuración.
+- iOS requiere una sesión de Apple Developer/App Store Connect con la identidad Apple Distribution y perfil App Store válidos para team 3M9854JZ4Y.
+- Para tienda, compilar con ADS_ENABLED=true y ADS_LIVE=true más los cuatro IDs de unidad de store/admob-production-ids.json. Los builds de prueba siguen usando IDs oficiales de prueba.
+- Revisar las declaraciones App Privacy / Data Safety desde el binario final: correo de padres para autenticación, IDs de cuenta/dispositivo para funcionalidad, contenido de familia para sincronización y datos del SDK Google Mobile Ads para anuncios en área de padre. No declarar que no se recopilan datos.
+- Verificar Data safety/Families después de seleccionar la audiencia. Los anuncios quedan fuera del área infantil, usan tratamiento child-directed y clasificación G; no habilitar anuncios personalizados ni formatos que incumplan Families.
+- Comprobar flujo de eliminación de cuenta desde la app y declararlo en cada tienda.
+- Capturas e información de privacidad deben corresponder al binario 1.0.0 (10), no a la vista previa local.
+- La cuenta padre es propietaria; los niños no tienen perfiles públicos ni canales de contacto.
+- No crear suscripciones ni describir un plan sin anuncios hasta implementar StoreKit/Google Play Billing y revisar los productos.
+
+
+## Estado de preparación — 2026-10-16
+- Build de tienda preparado: `1.0.0` (Android versionCode 10, iOS build 10); AAB e IPA firmados e inspeccionados localmente.
+- URLs públicas verificadas: privacidad `https://chorejar-liisgo-2026.web.app/privacy`, soporte `https://chorejar-liisgo-2026.web.app/support`, eliminación de cuenta `https://chorejar-liisgo-2026.web.app/delete-account`.
+- Data safety de Google Play se guardó como borrador, con la divulgación de Firebase y Google Mobile Ads conforme al binario de producción.
+- No iniciar producción ni enviar a revisión hasta resolver la clasificación `Cash Rewards`: Google resultó en ESRB Mature 17+ / PEGI 18, incompatible con la audiencia infantil prevista.
+- App Store Connect no tiene un registro accesible para `com.liisgo.chorejar`; Transporter no puede cargar el IPA hasta crear el registro o conceder acceso.

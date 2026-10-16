@@ -1,0 +1,14 @@
+{
+  "status": "created_not_enabled_in_test_builds",
+  "android": {
+    "app_id": "ca-app-pub-8588489900323524~2231725246",
+    "banner": "ca-app-pub-8588489900323524/2830491048",
+    "rewarded": "ca-app-pub-8588489900323524/9044545602"
+  },
+  "ios": {
+    "app_id": "ca-app-pub-8588489900323524~8335108326",
+    "banner": "ca-app-pub-8588489900323524/7292480235",
+    "rewarded": "ca-app-pub-8588489900323524/7162372313"
+  },
+  "usage_policy": "Store submission only. Every testing build and requested APK must use official test ads. An APK request never authorizes live ads."
+}

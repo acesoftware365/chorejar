@@ -1,0 +1,19 @@
+Nombre: Mi Mesadita
+Subtítulo: Tareas, mesadas y ahorro
+Descripción breve: Organiza tareas y mesadas, registra entregas y acompaña las metas de tus hijos.
+
+Descripción:
+Pequeños pasos, grandes sueños. Mi Mesadita ayuda a tu familia a organizar tareas y aprender hábitos de responsabilidad y ahorro.
+
+Como padre o madre puedes crear perfiles, asignar tareas con instrucciones y recompensas, revisar avances, configurar una mesada semanal o mensual y registrar el dinero que entregas fuera de la app. Los niños ven sus tareas, las envían a revisión y siguen su dinero y su meta de ahorro.
+
+La aplicación separa el dinero en revisión, pendiente de recibir, disponible, ahorrado y gastado. Cada movimiento queda en el historial; las correcciones conservan el registro original.
+
+Una misma app con acceso de padres y acceso infantil vinculado. Disponible en español e inglés.
+
+No realiza transferencias bancarias ni procesa pagos. Las mesadas se registran al actualizar el área de padres; entregar dinero siempre requiere una confirmación del padre.
+
+Palabras clave: tareas,mesada,familia,hijos,ahorro,recompensas,responsabilidad,alcancía
+Notas de versión: Primera versión para organizar tareas, mesadas y metas de ahorro en familia.
+Categoría propuesta: Estilo de vida / Productividad.
+Estado: borrador listo para revisión previa a publicar; no enviado a tiendas.

@@ -1,0 +1,4 @@
+Asset: chorejar-icon.png
+Built-in image_gen tool, original generation. No reference image was supplied.
+Prompt: Use case: logo-brand. Original iOS/Android icon for ChoreJar / Mi Mesadita, ages 5–16. Square, opaque warm cream background #FAF7EF; centered large emerald-green glass savings jar with golden coins inside and one at its opening. Soft polished 3D style, simple silhouette, emerald #16765B and navy #20354B accents. No words, currency symbols, faces, watermark, transparency or outer rounded-square border.
+The generated original is preserved. Platform variants were resized with sips; no generative edits.

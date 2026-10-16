@@ -1,0 +1,42 @@
+App name: ChoreJar
+
+Default language: en-US
+
+App type: App
+
+Category: Lifestyle
+
+Pricing: Free
+
+Short description:
+Chores, allowance records, and savings goals for the whole family.
+
+Full description:
+Small steps, big dreams. ChoreJar helps families build responsibility and saving habits together.
+
+Parents can create child profiles, assign chores with instructions and rewards, review completed work, record an allowance, and record money they give outside the app. Children can see their chores, submit them for review, follow their money and savings goal, and request a cash out that always needs a parent’s approval.
+
+ChoreJar keeps money in clear categories: waiting for approval, owed, available, saved, received, and spent. Every recorded movement stays in the family history. ChoreJar does not transfer money, hold funds, or process payments.
+
+Connect a child phone or tablet with a secure one-time QR code, link, or pairing code. Both devices can use Wi-Fi and do not need to be on the same network. Children do not need an email address or password.
+
+The app is available in English and Spanish. Families choose a country during setup, and ChoreJar adapts the allowance name to familiar local terminology.
+
+The free parent area may show child-directed, non-personalized ads. The child area does not show ads.
+
+Privacy policy URL: https://chorejar-liisgo-2026.web.app/privacy
+
+Support URL: https://chorejar-liisgo-2026.web.app/support
+
+Support email: sales@liisgo.com
+
+Developer website: https://liisgo.com/
+
+Suggested target audience declaration:
+Parents and families. Child profiles are parent-controlled; no child email, password, public profile, or direct contact feature is required.
+
+Data safety inventory to complete from the final production build:
+Parent email for account authentication; app user IDs and linked-device identifiers for account functionality; family-entered nicknames, chores, goals, allowance settings, and money records for app functionality; Google Mobile Ads SDK device, diagnostic, and advertising data for ads in the parent area. Do not mark the app as having no data collection.
+
+Account deletion URL:
+https://chorejar-liisgo-2026.web.app/delete-account

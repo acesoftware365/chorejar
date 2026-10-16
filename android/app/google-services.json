@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "196479268137",
+    "project_id": "chorejar-liisgo-2026",
+    "storage_bucket": "chorejar-liisgo-2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196479268137:android:54497d166f9346e1a13338",
+        "android_client_info": {
+          "package_name": "com.liisgo.chorejar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIN5IR4_e1hASMbhWJyFUrKQWI9XOyyV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

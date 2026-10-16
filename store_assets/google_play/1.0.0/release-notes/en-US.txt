@@ -1,0 +1,7 @@
+First public release of ChoreJar.
+
+• Create parent-managed child profiles for chores, allowance records, and savings goals.
+• Link a child phone or tablet with a one-time QR code, secure link, or pairing code.
+• Let children track progress toward a goal and request a cash out for parent approval.
+• Use a compact, responsive experience across phones and foldable screens.
+• Choose a country so the app uses familiar allowance terminology for your family.

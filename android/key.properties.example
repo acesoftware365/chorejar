@@ -1,0 +1,6 @@
+# Copy this file to android/key.properties and fill it with the owner-managed
+# Google Play upload key. This file is intentionally ignored by Git.
+storeFile=/absolute/path/to/chorejar-upload.jks
+storePassword=replace-with-a-strong-password
+keyAlias=chorejar-upload
+keyPassword=replace-with-a-strong-password

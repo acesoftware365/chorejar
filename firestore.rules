@@ -1,0 +1,145 @@
+
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function signed() { return request.auth != null; }
+  function ownerAccount(owner) { return signed() && request.auth.uid == owner && request.auth.token.firebase.sign_in_provider != 'anonymous'; }
+  function adult() { return signed() && request.auth.token.firebase.sign_in_provider != 'anonymous'; }
+  function parent(owner) {
+   return ownerAccount(owner) || (adult()
+    && exists(/databases/$(database)/documents/parentMembers/$(owner))
+    && get(/databases/$(database)/documents/parentMembers/$(owner)).data.uid == request.auth.uid);
+  }
+  function validParentJoin(owner, code, uid) {
+   return adult() && request.auth.uid == uid && uid != owner
+    && exists(/databases/$(database)/documents/families/$(owner))
+    && !exists(/databases/$(database)/documents/families/$(uid))
+    && !exists(/databases/$(database)/documents/parentLinks/$(uid))
+    && !exists(/databases/$(database)/documents/parentMembers/$(owner))
+    && get(/databases/$(database)/documents/parentInvites/$(code)).data.owner == owner
+    && get(/databases/$(database)/documents/parentInvites/$(code)).data.claimedBy == ''
+    && get(/databases/$(database)/documents/parentInvites/$(code)).data.expires > request.time
+    && getAfter(/databases/$(database)/documents/parentInvites/$(code)).data.claimedBy == uid
+    && getAfter(/databases/$(database)/documents/parentLinks/$(uid)).data.owner == owner
+    && getAfter(/databases/$(database)/documents/parentLinks/$(uid)).data.invite == code
+    && getAfter(/databases/$(database)/documents/parentMembers/$(owner)).data.uid == uid
+    && getAfter(/databases/$(database)/documents/parentMembers/$(owner)).data.invite == code;
+  }
+  match /parentInvites/{code} {
+   allow get: if adult() && (ownerAccount(resource.data.owner) || resource.data.claimedBy == request.auth.uid
+    || (resource.data.claimedBy == '' && resource.data.expires > request.time));
+   allow list: if ownerAccount(resource.data.owner);
+   allow create: if ownerAccount(request.resource.data.owner) && code.matches('[0-9a-f]{32}')
+    && exists(/databases/$(database)/documents/families/$(request.resource.data.owner))
+    && !exists(/databases/$(database)/documents/parentMembers/$(request.resource.data.owner))
+    && request.resource.data.keys().hasOnly(['owner','claimedBy','expires'])
+    && request.resource.data.claimedBy == '' && request.resource.data.expires > request.time
+    && request.resource.data.expires <= request.time + duration.value(11,'m');
+   allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimedBy'])
+    && validParentJoin(resource.data.owner, code, request.resource.data.claimedBy);
+   allow delete: if ownerAccount(resource.data.owner);
+  }
+  match /parentMembers/{owner} {
+   allow get: if parent(owner);
+   allow create: if request.resource.data.keys().hasOnly(['uid','invite'])
+    && validParentJoin(owner, request.resource.data.invite, request.resource.data.uid);
+   allow update: if false;
+   allow delete: if parent(owner)
+    && !existsAfter(/databases/$(database)/documents/parentLinks/$(resource.data.uid));
+  }
+  match /parentLinks/{uid} {
+   allow get: if adult() && (request.auth.uid == uid || ownerAccount(resource.data.owner));
+   allow create: if request.resource.data.keys().hasOnly(['owner','invite'])
+    && validParentJoin(request.resource.data.owner, request.resource.data.invite, uid);
+   allow update: if false;
+   allow delete: if (ownerAccount(resource.data.owner) || (adult() && request.auth.uid == uid))
+    && !existsAfter(/databases/$(database)/documents/parentMembers/$(resource.data.owner));
+  }
+  function child(owner, childId) {
+   return signed() && exists(/databases/$(database)/documents/links/$(request.auth.uid))
+    && get(/databases/$(database)/documents/links/$(request.auth.uid)).data.owner == owner
+    && get(/databases/$(database)/documents/links/$(request.auth.uid)).data.childId == childId
+    && get(/databases/$(database)/documents/links/$(request.auth.uid)).data.accessVersion == get(/databases/$(database)/documents/families/$(owner)/children/$(childId)).data.accessVersion;
+  }
+  match /families/{owner} {
+   allow get: if parent(owner);
+   allow create: if ownerAccount(owner) && !exists(/databases/$(database)/documents/parentLinks/$(owner)) && request.resource.data.keys().hasOnly(['currency','country','created'])
+    && request.resource.data.currency is string && request.resource.data.country is string;
+   allow update: if false;
+   allow delete: if ownerAccount(owner) && !exists(/databases/$(database)/documents/parentMembers/$(owner));
+   match /children/{childId} {
+    allow read: if parent(owner) || (child(owner,childId) && resource.data.archived == false);
+    allow create: if parent(owner) && request.resource.data.id == childId
+     && request.resource.data.currency == get(/databases/$(database)/documents/families/$(owner)).data.currency
+     && request.resource.data.entries is map && request.resource.data.tasks is map;
+    function parentUpdate() {
+     return parent(owner) && request.resource.data.id == resource.data.id
+      && request.resource.data.currency == resource.data.currency
+      && request.resource.data.entries.diff(resource.data.entries).changedKeys().size() == 0
+      && request.resource.data.entries.diff(resource.data.entries).removedKeys().size() == 0;
+    }
+    function childSubmit() {
+     let key = request.resource.data.lastSubmitted;
+     return child(owner,childId) && resource.data.archived == false
+      && key is string && key in resource.data.tasks
+      && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['tasks','lastSubmitted'])
+      && request.resource.data.tasks.diff(resource.data.tasks).affectedKeys().hasOnly([key])
+      && request.resource.data.tasks[key].diff(resource.data.tasks[key]).affectedKeys().hasOnly(['status'])
+      && resource.data.tasks[key].status in ['pending','correction']
+      && request.resource.data.tasks[key].status == 'review';
+    }
+    function childGoal() {
+     return child(owner,childId) && resource.data.archived == false
+      && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['goalName','goalImage','goalAmount'])
+      && request.resource.data.goalName is string
+      && request.resource.data.goalName.size() > 0 && request.resource.data.goalName.size() <= 120
+      && request.resource.data.goalImage in ['iphone','bicycle','console','headphones','gift','teddy','skateboard','tablet','sneakers','backpack','soccer','camera','guitar','robot','blocks','scooter','watch','artkit']
+      && request.resource.data.goalAmount is int
+      && request.resource.data.goalAmount > 0 && request.resource.data.goalAmount <= 1000000000;
+    }
+    function childCashOutRequest() {
+     return child(owner,childId) && resource.data.archived == false
+      && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['cashOutRequest'])
+      && request.resource.data.cashOutRequest is int
+      && request.resource.data.cashOutRequest > 0
+      && request.resource.data.cashOutRequest <= 100000000000;
+    }
+    allow update: if parentUpdate() || childSubmit() || childGoal() || childCashOutRequest();
+    allow delete: if parent(owner);
+   }
+  }
+  match /invites/{code} {
+   allow get: if signed() && (parent(resource.data.owner) || resource.data.claimedBy == request.auth.uid
+     || (resource.data.claimedBy == '' && resource.data.expires > request.time));
+   allow list: if parent(resource.data.owner);
+   allow create: if parent(request.resource.data.owner) && code.size() == 32
+    && request.resource.data.keys().hasOnly(['owner','childId','claimedBy','expires','accessVersion'])
+    && request.resource.data.accessVersion == get(/databases/$(database)/documents/families/$(request.resource.data.owner)/children/$(request.resource.data.childId)).data.accessVersion
+    && request.resource.data.claimedBy == ''
+    && request.resource.data.expires > request.time
+    && request.resource.data.expires <= request.time + duration.value(11,'m')
+    && get(/databases/$(database)/documents/families/$(request.resource.data.owner)/children/$(request.resource.data.childId)).data.archived == false;
+   allow update: if signed() && request.auth.token.firebase.sign_in_provider == 'anonymous'
+    && resource.data.claimedBy == '' && resource.data.expires > request.time
+    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimedBy'])
+    && request.resource.data.claimedBy == request.auth.uid
+    && getAfter(/databases/$(database)/documents/links/$(request.auth.uid)).data.invite == code;
+   allow delete: if parent(resource.data.owner);
+  }
+  match /links/{uid} {
+   allow get: if signed() && (request.auth.uid == uid || parent(resource.data.owner));
+   allow list: if parent(resource.data.owner);
+   allow create: if signed() && request.auth.uid == uid && request.auth.token.firebase.sign_in_provider == 'anonymous'
+    && request.resource.data.keys().hasOnly(['owner','childId','invite','accessVersion'])
+    && request.resource.data.accessVersion == get(/databases/$(database)/documents/invites/$(request.resource.data.invite)).data.accessVersion
+    && request.resource.data.accessVersion == get(/databases/$(database)/documents/families/$(request.resource.data.owner)/children/$(request.resource.data.childId)).data.accessVersion
+    && get(/databases/$(database)/documents/invites/$(request.resource.data.invite)).data.claimedBy == ''
+    && get(/databases/$(database)/documents/invites/$(request.resource.data.invite)).data.expires > request.time
+    && request.resource.data.owner == get(/databases/$(database)/documents/invites/$(request.resource.data.invite)).data.owner
+    && request.resource.data.childId == get(/databases/$(database)/documents/invites/$(request.resource.data.invite)).data.childId
+    && getAfter(/databases/$(database)/documents/invites/$(request.resource.data.invite)).data.claimedBy == uid;
+   allow update: if false;
+   allow delete: if parent(resource.data.owner);
+  }
+ }
+}

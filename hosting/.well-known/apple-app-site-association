@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "3M9854JZ4Y.com.liisgo.chorejar",
+        "paths": [
+          "/join-child",
+          "/join-parent"
+        ]
+      }
+    ]
+  }
+}

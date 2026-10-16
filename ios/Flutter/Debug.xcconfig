@@ -1,0 +1,6 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+GAD_APPLICATION_IDENTIFIER=ca-app-pub-3940256099942544~1458002511
+#include "Generated.xcconfig"
+
+// Google Mobile Ads exposes its beta header through the Flutter plugin.
+CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES

@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.liisgo.chorejar",
+      "sha256_cert_fingerprints": [
+        "D0:E9:F5:40:9B:A3:96:C2:64:9A:41:05:59:56:E4:91:57:E5:E9:EE:A5:E5:26:20:43:BF:DC:2E:DD:15:2A:09"
+      ]
+    }
+  }
+]

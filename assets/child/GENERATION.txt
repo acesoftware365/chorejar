@@ -1,0 +1,15 @@
+Interfaz infantil ChoreJar — 2026-10-08
+Referencia aportada por el usuario: /Users/juanpolanco/Downloads/424E1F12-8022-4118-ADA1-5A0AA129DD3D.PNG
+Vista previa: chorejar-child-reference.png. Render de widgets Flutter, 440×956 puntos, con datos sintéticos; no captura de simulador.
+Ilustraciones recreadas con la herramienta integrada image_gen, fondo transparente, originales conservados. No se usó CLI/API externa.
+Archivos finales:
+ /Users/juanpolanco/StudioProjects/ChoreJar/assets/child/money-jar.png
+ /Users/juanpolanco/StudioProjects/ChoreJar/assets/child/piggy-bank.png
+ /Users/juanpolanco/StudioProjects/ChoreJar/assets/child/bicycle.png
+
+Prompts finales:
+1. Use case: background-extraction. Extract/recreate ONLY the large clear glass money jar illustration from the supplied child app reference, including gold coins embossed with stars and green toy banknotes inside, one floating coin and note above the opening, small mint celebratory strokes, subtle contact shadow. Preserve the reference's polished friendly 3D rendering, clear glass (not green glass), proportions, colors and frontal view. Center tightly framed full object with a small margin. Transparent background. No text, no balance, no UI, no pig, no other elements. This is a production asset for a Flutter interface.
+2. Use case: background-extraction. Production Flutter illustration asset: recreate ONLY the smiling pink piggy bank from the lower savings card of the reference. Same polished soft 3D, pink ceramic, cheerful closed crescent eyes, three-quarter front view, round body, tiny feet, ears and coin slot, a few small golden celebratory rays on left. Transparent background, tight square framing with small safe margin, soft contact shadow. No text, no cards, no jar, no bicycle, no interface.
+3. Use case: background-extraction. Extract/recreate ONLY the little blue bicycle illustration on the right of the savings card in the reference. Match the friendly toy-like 3D style, blue frame, dark tires, brown saddle and grips, tiny golden rays above it. Side three-quarter view, tightly framed square production app asset, transparent background. No text, no card, no pig, no other interface.
+
+Fuente Nunito de google/fonts, licencia OFL incluida en assets/fonts/OFL.txt. Pesos estáticos 400/700/800/900 derivados de la fuente variable con fontTools.

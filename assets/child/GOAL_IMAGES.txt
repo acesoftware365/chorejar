@@ -1,0 +1,10 @@
+2026-10-08 — Nuevas ilustraciones de metas, creadas con image_gen integrado. Originales preservados; copia final en assets/child. Fondo transparente.
+
+Archivo: /Users/juanpolanco/StudioProjects/ChoreJar/assets/child/iphone.png
+Prompt: Use case: stylized-concept. Standalone savings goal illustration for children's ChoreJar app. Subject: a modern iPhone-style smartphone, three-quarter view, lavender metallic body, front screen with a simple purple pastel gradient, recognizable elegant rounded phone shape, no logos or text. Polished friendly soft 3D toy-like rendering, matching a cheerful pink piggy bank and gold coin app aesthetic. Centered full object, tight square framing with generous safe edge, soft shadow. Actual transparent background. No words, no UI, no other objects.
+
+Archivo: /Users/juanpolanco/StudioProjects/ChoreJar/assets/child/console.png
+Prompt: Use case: stylized-concept. Standalone savings goal illustration for children's ChoreJar app. Subject: a white and navy videogame controller with small colorful buttons, friendly modern gaming console symbol, no logos or text. Polished friendly soft 3D toy-like rendering, matching a cheerful pink piggy bank and gold coin app aesthetic. Centered full object, tight square framing with generous safe edge, soft shadow. Actual transparent background. No words, no UI, no other objects.
+
+Archivo: /Users/juanpolanco/StudioProjects/ChoreJar/assets/child/headphones.png
+Prompt: Use case: stylized-concept. Standalone savings goal illustration for children's ChoreJar app. Subject: lavender and cream over-ear wireless headphones, softly padded rounded ear cups, three-quarter view, no logos or text. Polished friendly soft 3D toy-like rendering, matching a cheerful pink piggy bank and gold coin app aesthetic. Centered full object, tight square framing with generous safe edge, soft shadow. Actual transparent background. No words, no UI, no other objects.
