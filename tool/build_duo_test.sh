@@ -3,6 +3,7 @@
 set -euo pipefail
 chore_root="$(cd "$(dirname "$0")/.." && pwd)"
 if [ "$#" -gt 0 ]; then export DEVELOPER_DIR="$1/Contents/Developer"; fi
+chore_target="${CHORE_TARGET:-lib/main.dart}"
 chore_sdk="$(xcrun --sdk iphonesimulator --show-sdk-version)"
 python3 - "$chore_sdk" <<'PY'
 import sys
@@ -13,13 +14,13 @@ PY
 cd "$chore_root"
 python3 - <<'PY'
 from pathlib import Path
-import plistlib
-info=plistlib.loads(Path('ios/Runner/Info.plist').read_bytes())
-if info.get('GADApplicationIdentifier') != 'ca-app-pub-3940256099942544~1458002511':
+debug_config=Path('ios/Flutter/Debug.xcconfig').read_text()
+if 'GAD_APPLICATION_IDENTIFIER=ca-app-pub-3940256099942544~1458002511' not in debug_config:
     raise SystemExit('This test build requires the official iOS sample AdMob app ID.')
 PY
 "${CHORE_FLUTTER:-/Users/juanpolanco/development/flutter/bin/flutter}" build ios \
   --simulator --debug --no-codesign --config-only \
+  --target="$chore_target" \
   --dart-define=ADS_ENABLED=true --dart-define=ADS_LIVE=false
 cd ios
 xcodebuild -workspace Runner.xcworkspace -scheme Runner -configuration Debug \

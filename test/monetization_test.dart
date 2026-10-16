@@ -13,12 +13,12 @@ void main() {
     expect(ads.rewardBusy, isFalse);
     ads.dispose();
   });
-  test('expired quiet period cannot suppress a ready banner', () {
+  test('a rewarded quiet period does not suppress the fixed parent banner', () {
     final ads = Advertising()..ready = true;
     ads.quietUntil = DateTime.now().subtract(const Duration(seconds: 1));
     expect(ads.showBanner, isTrue);
     ads.quietUntil = DateTime.now().add(const Duration(hours: 24));
-    expect(ads.showBanner, isFalse);
+    expect(ads.showBanner, isTrue);
     ads.dispose();
   });
   testWidgets(

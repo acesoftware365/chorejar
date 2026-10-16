@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import '../app_metadata.dart';
 import '../services/advertising.dart';
 
 /// Separate slot below navigation; never covers controls or the keyboard.
@@ -52,9 +53,19 @@ class _ParentAdBannerState extends State<ParentAdBanner> {
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(height: 4),
-          Text(
-            widget.spanish ? 'Publicidad' : 'Advertisement',
-            style: const TextStyle(fontSize: 10),
+          Semantics(
+            label:
+                '${widget.spanish ? 'Publicidad' : 'Advertisement'} — '
+                'ChoreJar v$appReleaseLabel',
+            child: Text(
+              'ChoreJar v$appReleaseLabel · '
+              '${widget.spanish ? 'Publicidad' : 'Advertisement'}',
+              style: const TextStyle(
+                fontSize: 10,
+                height: 1.2,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ),
           SizedBox(width: 320, height: 50, child: AdWidget(ad: ad!)),
         ],

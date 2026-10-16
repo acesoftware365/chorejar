@@ -1,0 +1,19 @@
+Nombre: Mi Mesadita
+Subtítulo: Tareas, mesadas y ahorro
+Texto promocional: Crea rutinas familiares con tareas, mesadas y metas de ahorro.
+
+Descripción:
+Pequeños pasos, grandes sueños. Mi Mesadita ayuda a tu familia a organizar tareas y crear hábitos de responsabilidad y ahorro.
+
+Como padre o madre puedes crear perfiles, asignar tareas con instrucciones y recompensas, revisar avances, configurar una mesada semanal o mensual y registrar el dinero que entregas fuera de la aplicación. Los niños ven sus tareas, las envían a revisión y siguen su dinero y su meta de ahorro.
+
+La aplicación separa lo que está en revisión, pendiente de recibir, disponible, ahorrado y gastado. Cada movimiento queda en el historial. Un niño puede solicitar retirar dinero de una meta y un padre debe aprobarlo.
+
+Una misma app ofrece un área de padres y una experiencia infantil vinculada por código o QR. Funciona por internet, incluso cuando los dispositivos usan redes distintas. Está disponible en español e inglés.
+
+Mi Mesadita no realiza transferencias bancarias ni procesa pagos. Toda entrega de dinero ocurre fuera de la app y requiere el registro del padre. La zona gratuita de padres puede mostrar publicidad no personalizada; no hay anuncios en la zona infantil.
+
+Palabras clave: tareas,mesada,familia,hijos,ahorro,recompensas,responsabilidad,metas
+URL de soporte: https://chorejar-liisgo-2026.web.app/support
+URL de marketing: https://chorejar-liisgo-2026.web.app/
+URL de privacidad: https://chorejar-liisgo-2026.web.app/privacy

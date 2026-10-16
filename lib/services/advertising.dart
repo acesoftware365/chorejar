@@ -5,7 +5,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// Live delivery stays off until account IDs and children's privacy review exist.
 class AdConfiguration {
-  static const enabled = bool.fromEnvironment('ADS_ENABLED');
+  // Development builds show Google's test inventory by default. Live units
+  // remain opt-in through ADS_LIVE plus the production unit IDs at build time.
+  static const enabled = bool.fromEnvironment(
+    'ADS_ENABLED',
+    defaultValue: true,
+  );
   static const testMode = !bool.fromEnvironment('ADS_LIVE');
   static bool get supported =>
       !kIsWeb &&
@@ -38,7 +43,10 @@ class Advertising extends ChangeNotifier {
   Future<void>? _initializing;
   Timer? _expiry;
   bool get quiet => quietUntil?.isAfter(DateTime.now()) ?? false;
-  bool get showBanner => ready && !quiet;
+  // The free parent experience always keeps the fixed banner slot available.
+  // A rewarded view can still be earned once per day, but does not hide the
+  // banner and make the installed build look different from its normal state.
+  bool get showBanner => ready;
   static const request = AdRequest(nonPersonalizedAds: true);
 
   Future<void> initializeForParent() => _initializing ??= _initialize();

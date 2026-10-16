@@ -977,3 +977,31 @@ Estado antes de la compilación: Google Play Console cuenta con seis apps y ning
 **App Store Connect:** el IPA de distribución se preparó. Transporter tiene una sesión Apple activa, pero Apple respondió que no existe un registro de aplicación accesible para el bundle `com.liisgo.chorejar`; por ello no fue posible cargar el IPA ni crear/seleccionar una versión. Se necesita crear el registro de ChoreJar en App Store Connect o conceder acceso de esa cuenta a la app. No se afirmó que estuviera en revisión.
 
 **Repositorio:** Git fue inicializado localmente para esta entrega. Antes de un push hace falta configurar un remoto; no se encontró ninguno. No se registraron contraseñas, tokens ni material de firma en este archivo.
+
+### 2026-10-16 — control de anuncios, materiales y emuladores (build 10)
+
+El banner de la zona gratuita del padre permanece visible después de una
+recompensa y muestra `ChoreJar v1.0.0 (10)` justo encima. Todas las pruebas
+mantienen `ADS_LIVE=false`, la aplicación oficial de prueba de Google y las
+unidades de prueba de Google; no se activaron IDs reales ni se inició una
+sesión de usuario.
+
+La cuenta indicada para preparar ya existía en Firebase. No se cambió, no se
+restableció su contraseña y no se inició sesión.
+
+Se guardó el paquete de materiales de tienda en `store_assets/`: textos de
+ficha y notas en inglés, español latinoamericano y español de España;
+gráficos promocionales 1024×500, 1200×628 y 1080×1350; fuentes de los
+gráficos; reglas de capturas y un plan de localización. La compilación actual
+solo ofrece inglés y español. El plan conserva quince prioridades futuras, sin
+declararlas traducidas ni habilitadas.
+
+Validación limpia: `flutter clean`, `flutter pub get`, `flutter analyze` sin
+incidencias y `flutter test --concurrency=1` con 45 pruebas aprobadas. La
+validación normal de Flutter para simulador falla en su empaquetado de
+arquitecturas con Xcode 27; la compilación nativa arm64 de Xcode se completó
+correctamente. La misma build de prueba se abrió en iPhone 16e, iPhone 17 Pro
+Max y Duo. En Duo, Xcode 27.1 instalado por separado confirmó modo cerrado y
+modo abierto horizontal; la captura QA abierta incluye banner de prueba y la
+etiqueta de versión. Esas capturas son evidencia interna y no capturas para
+las tiendas porque contienen `Test mode` y datos de vista previa local.

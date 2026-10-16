@@ -1,0 +1,19 @@
+Name: ChoreJar
+Subtitle: Chores, allowance & savings
+Promotional text: Build family routines with chores, allowance records and savings goals.
+
+Description:
+Small steps, big dreams. ChoreJar helps your family organize chores and build habits of responsibility and saving.
+
+Parents can create child profiles, assign chores with instructions and rewards, review completed tasks, set a weekly or monthly allowance, and record money given outside the app. Children see their tasks, submit them for review, and follow their money and savings goal.
+
+ChoreJar clearly separates rewards in review, money owed, money available, savings, and expenses. Every change stays in the history. A child can request money from savings, and a parent must approve it.
+
+One app includes a parent area and a paired child experience connected by a code or QR. It works over the internet even when the devices use different networks. Available in English and Spanish.
+
+ChoreJar does not transfer money or process payments. Money is given outside the app and recorded by a parent. The free parent area may show non-personalized advertising; the child area contains no ads.
+
+Keywords: chores,allowance,family,kids,savings,rewards,responsibility,money,goals
+Support URL: https://chorejar-liisgo-2026.web.app/support
+Marketing URL: https://chorejar-liisgo-2026.web.app/
+Privacy URL: https://chorejar-liisgo-2026.web.app/privacy
