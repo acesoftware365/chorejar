@@ -84,7 +84,10 @@ class Movement {
   });
   factory Movement.fromJson(Map<String, dynamic> j) => Movement(
     id: j['id'],
-    kind: j['kind'],
+    // A pre-release build used the internal kind `cashout`. It represented a
+    // parent-recorded expense, never a payment made by ChoreJar. Normalize it
+    // on read so historic test data remains understandable in the new model.
+    kind: j['kind'] == 'cashout' ? 'spending' : j['kind'],
     date: j['date'],
     amount: j['amount'],
     delta: List<int>.from(j['delta']),
@@ -114,11 +117,7 @@ class ChildData {
       allowanceFrequency,
       allowanceNext,
       allowancePlan;
-  int goalAmount,
-      allowanceAmount,
-      accessVersion,
-      allowanceAnchor,
-      cashOutRequest;
+  int goalAmount, allowanceAmount, accessVersion, allowanceAnchor;
   bool archived;
   final Map<String, Task> tasks;
   final Map<String, Movement> entries;
@@ -138,7 +137,6 @@ class ChildData {
     this.archived = false,
     this.accessVersion = 0,
     this.allowanceAnchor = 1,
-    this.cashOutRequest = 0,
     Map<String, Task>? tasks,
     Map<String, Movement>? entries,
   }) : tasks = tasks ?? {},
@@ -149,7 +147,6 @@ class ChildData {
     currency: j['currency'],
     accessVersion: j['accessVersion'] ?? 0,
     allowanceAnchor: j['allowanceAnchor'] ?? 1,
-    cashOutRequest: j['cashOutRequest'] ?? 0,
     avatar: j['avatar'],
     mode: j['mode'],
     goalName: j['goalName'],
@@ -173,7 +170,6 @@ class ChildData {
     'currency': currency,
     'accessVersion': accessVersion,
     'allowanceAnchor': allowanceAnchor,
-    'cashOutRequest': cashOutRequest,
     'avatar': avatar,
     'mode': mode,
     'goalName': goalName,
@@ -215,7 +211,6 @@ class ChildData {
     require(['tasks', 'allowance', 'both'].contains(mode));
     require(['weekly', 'monthly'].contains(allowanceFrequency));
     require(goalAmount >= 0 && allowanceAmount >= 0);
-    require(cashOutRequest >= 0 && cashOutRequest <= 100000000000);
     final b = balances;
     require(b.every((v) => v >= 0), 'insufficient');
     require(b[3] == b[1] + b[2] + b[4]);
@@ -333,12 +328,6 @@ class ChildData {
         require(amount <= available, 'insufficient');
         d[1] = -amount;
         d[4] = amount;
-      case 'cashout':
-        require(amount <= goalMoney, 'insufficient');
-        final fromSavings = amount > available ? amount - available : 0;
-        d[1] = -(amount - fromSavings);
-        d[2] = -fromSavings;
-        d[4] = amount;
       default:
         throw DomainError('invalid');
     }
@@ -356,18 +345,6 @@ class ChildData {
   }
 
   int get goalMoney => available + savings;
-
-  void requestCashOut(int amount) {
-    require(amount > 0 && amount <= goalMoney, 'insufficient');
-    cashOutRequest = amount;
-  }
-
-  void cashOut(String id, DateTime now) {
-    final amount = cashOutRequest;
-    require(amount > 0 && amount <= goalMoney, 'insufficient');
-    move(id, 'cashout', amount, '', now);
-    cashOutRequest = 0;
-  }
 
   void reverse(String id, String reason, DateTime now) {
     final e = entries[id];

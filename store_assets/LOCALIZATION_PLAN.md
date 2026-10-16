@@ -19,7 +19,7 @@ same source copy, subject to each locale's title limits.
 ## Priority queue for a later localized release
 
 These are market/localization candidates only. They are **not** translated,
-enabled, or ready to submit in version 1.0.0.
+enabled, or ready to submit in version 1.0.1.
 
 1. English (United States, United Kingdom, Canada, Australia)
 2. Spanish, Latin America

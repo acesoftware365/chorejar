@@ -989,6 +989,30 @@ sesión de usuario.
 La cuenta indicada para preparar ya existía en Firebase. No se cambió, no se
 restableció su contraseña y no se inició sesión.
 
+### 2026-10-16 — rediseño infantil y preparación para revisión (1.0.1+11)
+
+Se retiró la función pre-publicación que permitía a un niño solicitar un retiro
+de dinero. Ya no existe en el modelo, el repositorio, la vista infantil, la
+vista de padre ni las reglas de Firestore. El perfil infantil conserva tareas,
+envío a revisión, elección de meta y seguimiento del progreso. Cuando hay saldo
+para una meta, la interfaz indica hablar con el padre o madre; no presenta un
+botón para pedir, retirar, aprobar, enviar ni gastar dinero.
+
+ChoreJar queda definido para revisión como organizador familiar y registro de
+hechos que ocurren fuera de la app. El padre registra una recompensa, mesada,
+entrega, movimiento de ahorro o gasto después del evento real. La app no
+transfiere, guarda, procesa ni paga fondos, y no ofrece billetera, cuenta de
+pago, producto financiero, recompensa en efectivo ni pagos iniciados por niños.
+La migración de datos de pruebas normaliza el movimiento interno obsoleto de
+retiro como gasto al leerlo; los perfiles nuevos no guardan ese campo.
+
+Los textos de privacidad, fichas de Google Play y App Store, notas de revisión
+y guía de materiales se actualizaron en `store_assets/` para la versión 1.0.1
+(build 11). El material anterior se conserva bajo `store_assets/archive/` y se
+marca expresamente como no apto para envío. Esto alinea el producto y la
+declaración de tienda, pero no sustituye el acuerdo legal del titular de la
+cuenta ni la decisión final de las tiendas.
+
 Se guardó el paquete de materiales de tienda en `store_assets/`: textos de
 ficha y notas en inglés, español latinoamericano y español de España;
 gráficos promocionales 1024×500, 1200×628 y 1080×1350; fuentes de los
@@ -1059,3 +1083,44 @@ siguen siendo candidatas hasta comparar contra el binario firmado. Durante
 esta verificación se corrigieron los textos de datos sintéticos para que el
 escenario en inglés también use tareas, instrucciones y meta en inglés.
 `flutter analyze` y los 45 tests locales terminaron correctamente.
+
+### 2026-10-16 — paquete final de revisión 1.0.1 (build 11)
+
+Se completó la preparación técnica de los binarios de tienda con alcance de
+organizador familiar, no financiero. El AAB firmado
+`build/app/outputs/bundle/release/app-release.aab` y el IPA
+`build/ios/ipa/chorejar.ipa` corresponden a la versión `1.0.1` y build/Android
+`11`. Se inspeccionó el IPA: incluye únicamente Runner con
+`CFBundleShortVersionString 1.0.1` y `CFBundleVersion 11`, por lo que no hay
+extensiones, widgets ni App Clips con versiones divergentes. El AAB fue
+verificado como firmado. Los builds de tienda habilitan los banners reales solo
+con los defines de producción; desarrollo, pruebas y Duo continúan usando
+inventario oficial de prueba.
+
+Validación final realizada: `flutter clean`, `flutter pub get`, `flutter
+analyze` sin incidencias, `flutter test --concurrency=1` con 46 pruebas
+aprobadas y `node test_support/cloud_smoke.cjs` con 58 comprobaciones. El smoke
+test retiró sus usuarios y datos sintéticos. Las reglas de Firestore y hosting
+se desplegaron, incluyendo privacidad, términos, soporte y eliminación de
+cuenta. Se abrió de nuevo la build de prueba en Duo con Xcode 27.1 instalado
+por separado; no se activaron anuncios de producción en esa prueba.
+
+La ficha de Google Play se guardó como borrador en en-US y es-419 con icono,
+gráfico destacado y cinco capturas limpias de iPhone 17 Pro Max por idioma. La
+pantalla de Play presenta la declaración de recursos creados o editados con IA;
+el titular debe responderla con exactitud y completar etiquetas individuales si
+la consola las solicita. IARC quedó
+reiniciado según el alcance sin cash-out ni recompensas en efectivo: Brasil
+Todas las edades, ESRB Everyone, PEGI 3 y USK All ages. La declaración de
+audiencia usa los grupos consecutivos 6–8, 9–12, 13–15, 16–17 y 18+, sin 5 y
+menores. No se marcó la certificación legal infantil de Play en nombre del
+titular.
+
+El impedimento pendiente no es técnico: Google Play requiere que el titular
+certifique personalmente el cumplimiento de leyes infantiles para la app, SDKs
+y anuncios; Apple exige que el Legal Account Holder acepte sus acuerdos
+vigentes y cree o conceda acceso al registro de App Store Connect de
+`com.liisgo.chorejar` antes de subir el IPA. No se aceptó ningún acuerdo ni se
+afirmó que la app esté publicada o enviada a revisión. El detalle operativo y
+las declaraciones de alcance quedan en
+`store_assets/review/1.0.1/STORE_SUBMISSION_STATUS.md`.

@@ -1,0 +1,7 @@
+Primera versión pública de Mi Paga.
+
+• Crea perfiles infantiles administrados por padres para tareas, pagas y metas de ahorro.
+• Vincula un teléfono o tableta infantil con código QR, enlace seguro de un solo uso o código de vinculación.
+• Los niños siguen sus tareas y su meta; los padres conservan el control de las decisiones de dinero de la vida real.
+• Usa una experiencia compacta y adaptable en teléfonos y pantallas plegables.
+• Elige un país para usar el nombre familiar de la paga.

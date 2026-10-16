@@ -1,0 +1,24 @@
+Name: ChoreJar
+Subtitle: Chores, allowance & savings
+Promotional text: Build family routines with chores, allowance records and savings goals.
+
+Description:
+Small steps, big dreams. ChoreJar helps your family organize chores and build habits of responsibility and saving.
+
+Parents and caregivers create family profiles, assign chores with instructions and rewards, review completed tasks, set a weekly or monthly allowance, and record money they have already given outside the app. A parent-controlled child profile can see tasks, submit them for review, follow progress, and choose a savings goal.
+
+ChoreJar clearly separates rewards in review, money owed, money available, savings, received money, and expenses. Every parent-recorded change stays in the history. A child cannot approve a reward, move money, request a payout, or record an expense.
+
+ChoreJar is a household organizer and record keeper. It does not transfer, hold, process, send, withdraw, cash out, lend, or pay money. It does not provide a wallet, payment account, bank account, financial product, cash reward, or child-initiated payout. Real-world money or purchase decisions are made by a parent outside the app.
+
+One app includes an adult parent area and a paired, parent-controlled child experience connected by a code or QR. It works over the internet even when devices use different networks. Available in English and Spanish.
+
+The adult parent area may show age-restricted, non-personalized, family-safe banner advertising. The linked child area contains no ads.
+
+Keywords: chores,allowance,family,savings,rewards,responsibility,goals,parenting,routines
+Support URL: https://chorejar-liisgo-2026.web.app/support
+Marketing URL: https://chorejar-liisgo-2026.web.app/
+Privacy URL: https://chorejar-liisgo-2026.web.app/privacy
+
+App Review notes:
+ChoreJar is a household organizer and record keeper. A parent manually records a chore reward, allowance, money given, savings move, or expense only after the real-world event. The service never transfers, stores, or pays out funds. A child cannot request, withdraw, cash out, approve, send, or spend money in the app. Create any parent account for review, then add a child profile and use the parent controls to review a task and record money given. The child profile is paired by a one-time code, link, or QR code and requires no child email or password.

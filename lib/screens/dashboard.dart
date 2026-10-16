@@ -794,51 +794,6 @@ class _DashboardState extends State<Dashboard> with WidgetsBindingObserver {
         ],
       ),
     ),
-    if (parent && c.cashOutRequest > 0)
-      panel(
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              t('cashOutRequest'),
-              style: const TextStyle(fontWeight: FontWeight.w800),
-            ),
-            const SizedBox(height: 6),
-            Text('${cash(c.cashOutRequest, c)} · ${t('cashOutParentHelp')}'),
-            const SizedBox(height: 12),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: [
-                OutlinedButton(
-                  onPressed: busy
-                      ? null
-                      : () => run(
-                          () => repo.change(
-                            c.id,
-                            (fresh) => fresh.cashOutRequest = 0,
-                          ),
-                          success: null,
-                        ),
-                  child: Text(t('cancel')),
-                ),
-                FilledButton(
-                  onPressed: busy
-                      ? null
-                      : () => run(
-                          () => repo.change(
-                            c.id,
-                            (fresh) => fresh.cashOut(newId(), DateTime.now()),
-                          ),
-                          success: 'cashOut',
-                        ),
-                  child: Text(t('confirm')),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
     if (c.reviewing > 0)
       ListTile(
         contentPadding: EdgeInsets.zero,
@@ -1012,22 +967,12 @@ class _DashboardState extends State<Dashboard> with WidgetsBindingObserver {
                 onPressed: c.available > 0 ? () => move(c, 'saving') : null,
                 child: Text(t('saveMoney')),
               ),
-            if (!parent && c.cashOutRequest > 0) ...[
+            if (!parent && c.goalMoney > 0) ...[
               const SizedBox(height: 8),
               Text(
-                t('cashOutWaiting'),
+                t('goalFamilyHelp'),
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: green,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ] else if (!parent && c.goalMoney > 0) ...[
-              const SizedBox(height: 8),
-              OutlinedButton.icon(
-                onPressed: busy ? null : () => requestCashOut(c),
-                icon: const Icon(Icons.payments_outlined),
-                label: Text(t('cashOutAsk')),
+                style: const TextStyle(color: muted),
               ),
             ],
           ],
@@ -1035,34 +980,6 @@ class _DashboardState extends State<Dashboard> with WidgetsBindingObserver {
       ),
     ),
   ];
-
-  Future<void> requestCashOut(ChildData c) async {
-    final amount = c.goalMoney;
-    if (amount <= 0) return;
-    final approved = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        icon: const Icon(Icons.payments_outlined, color: green),
-        title: Text(t('cashOutAsk')),
-        content: Text('${cash(amount, c)}\n\n${t('cashOutAskHelp')}'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: Text(t('cancel')),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: Text(t('cashOutAsk')),
-          ),
-        ],
-      ),
-    );
-    if (approved != true || !mounted) return;
-    await run(
-      () => repo.requestCashOut(c.id, amount),
-      success: 'cashOutRequested',
-    );
-  }
 
   String amountText(int amount, String currency) =>
       (amount / units(currency)).toStringAsFixed(digits(currency));

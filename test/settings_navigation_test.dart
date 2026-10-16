@@ -9,7 +9,6 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:chorejar/main.dart';
 import 'package:chorejar/l10n/strings.dart';
 import 'package:chorejar/models/family.dart';
-import 'package:chorejar/screens/sign_in.dart';
 import 'package:chorejar/widgets/child_invitation_dialog.dart';
 import 'widget_test.dart' show MemoryRepository;
 
@@ -161,13 +160,7 @@ void main() {
           expect(tester.takeException(), isNull);
           await tester.tap(find.text(s('accountStart')));
           await tester.pumpAndSettle();
-          expect(find.byType(SignIn), findsOneWidget);
-          await tester.scrollUntilVisible(
-            find.widgetWithText(TextField, s('password')),
-            160,
-            scrollable: find.byType(Scrollable).first,
-          );
-          expect(find.widgetWithText(TextField, s('password')), findsOneWidget);
+          expect(find.text(s('parentGateTitle')), findsOneWidget);
           expect(tester.takeException(), isNull);
           await tester.pumpWidget(const SizedBox());
         }

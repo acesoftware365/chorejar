@@ -103,13 +103,6 @@ class ChildPreviewRepository implements FamilyRepository {
   }
 
   @override
-  Future<void> requestCashOut(String childId, int amount) async {
-    require(childId == child.id);
-    child.requestCashOut(amount);
-    _updates.add([child.copy()]);
-  }
-
-  @override
   Future<void> change(String id, void Function(ChildData) edit) async {
     require(id == child.id, 'permission');
     final next = child.copy();

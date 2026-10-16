@@ -31,6 +31,9 @@ void main() {
       );
       await tester.tap(find.text('Soy mamá o papá'));
       await tester.pumpAndSettle();
+      expect(find.text(strings('parentGateTitle')), findsOneWidget);
+      await tester.tap(find.byKey(const Key('parent-access-continue')));
+      await tester.pumpAndSettle();
       expect(find.text('Paso 1 de 4'), findsOneWidget);
       await tester.tap(find.text('Continuar'));
       await tester.pumpAndSettle();
@@ -61,6 +64,25 @@ void main() {
       await repo.close();
     },
   );
+
+  testWidgets('The child pairing route never opens the adult confirmation', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: WelcomeFlow(
+          strings: strings,
+          firebaseReady: false,
+          childInvitation: true,
+          invitation: '0123456789abcdef0123456789abcdef',
+          onOpen: (_) {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text(strings('parentGateTitle')), findsNothing);
+    expect(find.text(strings('childCodeOrLink')), findsOneWidget);
+  });
   testWidgets('First chore can be skipped without creating a reward', (
     tester,
   ) async {

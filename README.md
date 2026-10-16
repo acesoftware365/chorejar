@@ -17,7 +17,7 @@ Referencia: iPhone 17 Pro Max / iOS 26.2. Mínimos configurados: iOS 15 y Androi
 3. Crea tareas con instrucciones, recompensa y frecuencia. Las tareas recurrentes generan su siguiente ocurrencia al aprobarse, contando desde la aprobación.
 4. En Ajustes, genera un código de vinculación de un solo uso (10 minutos). En el dispositivo infantil, elige Niño y escribe ese código. No se necesita correo del niño.
 5. El niño envía tareas. El padre aprueba o pide correcciones; únicamente aprobar genera dinero pendiente.
-6. El padre registra el dinero que entregó fuera de la app, ahorro, retiros y gastos. Puede corregir movimientos con un reverso y motivo; los originales se conservan.
+6. El padre registra el dinero que entregó fuera de la app, los movimientos de ahorro y los gastos. Puede corregir movimientos con un reverso y motivo; los originales se conservan. El niño no puede pedir pagos, aprobar recompensas, mover dinero ni registrar gastos.
 7. Define una meta de ahorro. La vista infantil incluye Tareas, Mi dinero y Mi meta.
 8. Desde Ajustes se cambia idioma, desvinculan dispositivos, archivan perfiles o elimina la cuenta y familia con reautenticación.
 9. Para borrar un niño, selecciona su perfil en el modo padres y pulsa el botón rojo «Eliminar niño». La advertencia pide confirmación antes de eliminar ese perfil y su historial de forma irreversible. Archivar sigue disponible para conservar el historial. La acción no aparece en modo niño.
@@ -25,7 +25,7 @@ Referencia: iPhone 17 Pro Max / iOS 26.2. Mínimos configurados: iOS 15 y Androi
 El nombre del icono sigue el idioma del sistema; el selector interno cambia la interfaz y guarda la preferencia.
 
 ## Firebase
-Proyecto independiente: `chorejar-liisgo-2026`. Firestore Standard en `us-east1`, nivel gratuito, plan Spark; Email/Password y Anonymous habilitados. No se activó facturación, Analytics ni publicidad. Las configuraciones cliente son identificadores públicos, no claves administrativas.
+Proyecto independiente: `chorejar-liisgo-2026`. Firestore Standard en `us-east1`, nivel gratuito, plan Spark; Email/Password y Anonymous habilitados. No se activó Analytics. La compilación de tienda sí incorpora Google Mobile Ads únicamente para un banner no personalizado en el área de padre confirmada como adulta; el área infantil no inicializa anuncios. Las configuraciones cliente son identificadores públicos, no claves administrativas.
 
 Reglas: `firestore.rules`. Las sesiones de padres y niños tienen permisos distintos. El niño solo puede leer su perfil activo y cambiar una tarea pendiente/corregida a revisión. No puede aprobar ni editar recompensas, perfiles ni historial. Un código aleatorio vincula una sesión anónima; no es un PIN que desbloquea privilegios de padres. Revocar incrementa la versión de acceso y elimina vínculos/códigos existentes.
 
@@ -72,13 +72,17 @@ Las mesadas se devengan al abrir/actualizar el área padre, no mediante un proce
 Un padre propietario por familia, una moneda familiar y una meta activa por hijo. Se mantienen tareas/movimientos por perfil en un documento con límite preventivo de 750 KB; al alcanzarlo se avisa sin borrar historial. La aprobación del padre es la autoridad del registro: las reglas protegen frente al niño y otras familias, no frente a un padre que actúe fuera de la aplicación sobre sus propios datos. No incluye transferencias bancarias, conversión de divisas, notificaciones push ni automatización de servidor.
 
 La app no está publicada en tiendas. La preparación de la primera entrega usa
-`1.0.0+10`, enlaces públicos de privacidad y soporte en el hosting de ChoreJar,
-y los IDs reales de AdMob únicamente para builds de tienda. Android exige una
-clave de subida del propietario en `android/key.properties`; nunca permite la
-firma de depuración en release. iOS usa firma automática del equipo
-`3M9854JZ4Y` y requiere una identidad Apple Distribution y un perfil App Store
-válidos antes de archivar. Faltan las credenciales de distribución y la sesión
-de App Store Connect para poder enviar los binarios.
+`1.0.1+11`, enlaces públicos de privacidad, términos y soporte en el hosting de
+ChoreJar, y los IDs reales de AdMob únicamente para builds de tienda. El AAB
+firmado y el IPA de distribución de `1.0.1 (11)` están listos en `build/`, y
+fueron inspeccionados antes de preparar la ficha. Android exige una clave de
+subida del propietario en `android/key.properties`; nunca permite la firma de
+depuración en release. iOS usa firma automática del equipo `3M9854JZ4Y` y
+requiere una identidad Apple Distribution y un perfil App Store válidos antes
+de archivar. El titular todavía debe aceptar los acuerdos de Apple y crear o
+dar acceso al registro de App Store Connect para `com.liisgo.chorejar`; la
+certificación infantil de Play Console también debe hacerla personalmente el
+titular. Esos pasos no se sustituyen con esta documentación.
 
 ### Dos padres en una familia
 En una cuenta conectada, Ajustes → Acceso para dos padres permite al creador invitar una segunda cuenta con código privado de 10 minutos y un solo uso. El segundo adulto activa «Tengo una invitación de otro padre» al iniciar sesión o registrarse con su propio correo. Debe usar una cuenta que todavía no pertenezca a otra familia; no se fusionan familias existentes. Ambos administran los mismos niños, tareas y saldos. Solo el creador puede invitar y eliminar toda la familia. El segundo padre puede abandonar el acceso o eliminar únicamente su propia cuenta; los datos familiares se conservan. La demo local solo explica esta función.

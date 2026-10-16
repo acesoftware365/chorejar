@@ -98,24 +98,17 @@ void main() {
       expect(c.entries['task-a']!.amount, 500);
     },
   );
-  test(
-    'Cash-out requests preserve control until a parent records the cash',
-    () {
-      final c = fresh();
-      approve(c, 'a', 500);
-      c.move('pay', 'payment', 500, '', now);
-      c.move('save', 'saving', 200, '', now);
-      expect(c.goalMoney, 500);
-      c.requestCashOut(500);
-      expect(c.cashOutRequest, 500);
-      expect(c.goalMoney, 500);
-      c.cashOut('cash', now);
-      expect(c.cashOutRequest, 0);
-      expect(c.goalMoney, 0);
-      expect(c.spent, 500);
-      expect(c.balances, [0, 0, 0, 500, 500]);
-    },
-  );
+  test('Parent-recorded expenses keep the money history balanced', () {
+    final c = fresh();
+    approve(c, 'a', 500);
+    c.move('pay', 'payment', 500, '', now);
+    c.move('save', 'saving', 200, '', now);
+    c.move('back', 'withdrawal', 200, '', now);
+    c.move('expense', 'spending', 500, 'Goal item', now);
+    expect(c.goalMoney, 0);
+    expect(c.spent, 500);
+    expect(c.balances, [0, 0, 0, 500, 500]);
+  });
   test('Duplicate operations remain rejected after serialization', () {
     final c = fresh();
     approve(c, 'a', 500);

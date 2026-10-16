@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../l10n/strings.dart';
 import '../services/advertising.dart';
 import '../widgets/surfaces.dart';
@@ -13,6 +15,27 @@ class MembershipScreen extends StatelessWidget {
       listenable: Advertising.instance,
       builder: (context, _) {
         final ads = Advertising.instance;
+        Future<void> reportAd() async {
+          final subject = strings('adReportSubject');
+          final body = strings('adReportBody');
+          final uri = Uri(
+            scheme: 'mailto',
+            path: 'sales@liisgo.com',
+            queryParameters: {'subject': subject, 'body': body},
+          );
+          final opened = await launchUrl(uri);
+          if (!opened && context.mounted) {
+            await Clipboard.setData(
+              ClipboardData(text: 'sales@liisgo.com\n$subject\n\n$body'),
+            );
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(strings('adReportCopied'))),
+              );
+            }
+          }
+        }
+
         return pageBody([
           Text(
             strings('freePlan'),
@@ -21,64 +44,27 @@ class MembershipScreen extends StatelessWidget {
           Text(strings('freePlanDetails')),
           const SizedBox(height: 24),
           Text(
-            'ChoreJar Plus',
+            strings('membershipComingSoon'),
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          Text(strings('plusDetails')),
-          Card(
-            child: ListTile(
-              title: Text(strings('monthlyPlan')),
-              subtitle: const Text('0.99 USD'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text(strings('yearlyPlan')),
-              subtitle: const Text('9.99 USD'),
-            ),
-          ),
           Text(strings('plansPending')),
-          const SizedBox(height: 24),
-          Text(
-            strings('rewardTitle'),
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          Text(strings('rewardDetails')),
-          const SizedBox(height: 12),
-          FilledButton.icon(
-            icon: const Icon(Icons.ondemand_video),
-            label: Text(
-              strings(
-                ads.quiet
-                    ? 'rewardActive'
-                    : ads.rewardBusy
-                    ? 'loading'
-                    : 'watchReward',
-              ),
-            ),
-            onPressed: !ads.ready || ads.quiet || ads.rewardBusy
-                ? null
-                : () async {
-                    final earned = await ads.watchForQuietDay();
-                    if (context.mounted) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            strings(
-                              earned ? 'rewardActive' : 'rewardUnavailable',
-                            ),
-                          ),
-                        ),
-                      );
-                    }
-                  },
-          ),
           if (!ads.ready) Text(strings('adsPending')),
           if (ads.privacyOptionsRequired)
             TextButton(
               onPressed: ads.privacyOptions,
               child: Text(strings('adPrivacy')),
             ),
+          const SizedBox(height: 18),
+          Text(
+            strings('adReportTitle'),
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Text(strings('adReportHelp')),
+          TextButton.icon(
+            onPressed: reportAd,
+            icon: const Icon(Icons.flag_outlined),
+            label: Text(strings('adReport')),
+          ),
         ]);
       },
     ),

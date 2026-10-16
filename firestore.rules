@@ -97,14 +97,7 @@ service cloud.firestore {
       && request.resource.data.goalAmount is int
       && request.resource.data.goalAmount > 0 && request.resource.data.goalAmount <= 1000000000;
     }
-    function childCashOutRequest() {
-     return child(owner,childId) && resource.data.archived == false
-      && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['cashOutRequest'])
-      && request.resource.data.cashOutRequest is int
-      && request.resource.data.cashOutRequest > 0
-      && request.resource.data.cashOutRequest <= 100000000000;
-    }
-    allow update: if parentUpdate() || childSubmit() || childGoal() || childCashOutRequest();
+    allow update: if parentUpdate() || childSubmit() || childGoal();
     allow delete: if parent(owner);
    }
   }

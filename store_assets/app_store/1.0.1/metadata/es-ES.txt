@@ -1,0 +1,24 @@
+Nombre: Mi Paga
+Subtítulo: Tareas, pagas y ahorro
+Texto promocional: Crea rutinas familiares con tareas, pagas y metas de ahorro.
+
+Descripción:
+Pequeños pasos, grandes sueños. Mi Paga ayuda a tu familia a organizar tareas y crear hábitos de responsabilidad y ahorro.
+
+Como padre o madre puedes crear perfiles, asignar tareas con instrucciones y recompensas, revisar avances, configurar una paga semanal o mensual y registrar dinero que ya entregaste fuera de la aplicación. Los niños ven sus tareas, las envían a revisión, siguen su progreso y eligen una meta de ahorro.
+
+La aplicación separa lo que está en revisión, pendiente de recibir, disponible, ahorrado, recibido y gastado. Cada cambio que registra un padre queda en el historial. Un niño no puede aprobar una recompensa, mover dinero, pedir un pago ni registrar un gasto.
+
+Mi Paga es una herramienta familiar para organizar y registrar. No transfiere, guarda, procesa, envía, retira, presta ni paga dinero. No ofrece billetera, cuenta de pago, cuenta bancaria, producto financiero, recompensa en efectivo ni pagos iniciados por niños. Las decisiones sobre dinero o compras ocurren fuera de la app y las toma un padre o tutor.
+
+Una misma app ofrece un área de padres y una experiencia infantil vinculada por código o QR. Funciona por internet, incluso cuando los dispositivos usan redes distintas. Está disponible en español e inglés.
+
+El área adulta de padres puede mostrar banners aptos para familias, con tratamiento de edad y sin personalización. El área infantil vinculada no tiene anuncios.
+
+Palabras clave: tareas,paga,familia,hijos,ahorro,recompensas,responsabilidad,metas,crianza
+URL de soporte: https://chorejar-liisgo-2026.web.app/support
+URL de marketing: https://chorejar-liisgo-2026.web.app/
+URL de privacidad: https://chorejar-liisgo-2026.web.app/privacy
+
+Notas para revisión de la app:
+Mi Paga es una herramienta familiar para organizar y registrar. Un padre registra una recompensa, paga, entrega de dinero, movimiento de ahorro o gasto solamente después del hecho en la vida real. El servicio nunca transfiere, guarda ni entrega fondos. Un niño no puede pedir, retirar, aprobar, enviar ni gastar dinero dentro de la app. Para revisar, crea cualquier cuenta de padre, añade un perfil infantil y usa los controles del padre para revisar una tarea y registrar una entrega. El perfil infantil se vincula mediante código, enlace o QR de un solo uso y no requiere correo ni contraseña infantil.

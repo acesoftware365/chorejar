@@ -107,7 +107,12 @@ void main() {
           );
           expect(find.text('Bicicleta'), findsOneWidget);
           if (language == 'en' && size == const Size(384, 760)) {
-            expect(find.text('Ask to cash out'), findsOneWidget);
+            expect(
+              find.text(
+                'When you are ready to use money for your goal, talk with your parent. They record real-world decisions outside the app.',
+              ),
+              findsOneWidget,
+            );
           }
           expect(tester.takeException(), isNull);
           await tester.tap(find.byKey(const Key('child-tab-0')));

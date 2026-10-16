@@ -18,7 +18,6 @@ abstract class FamilyRepository {
   Future<void> deleteChild(String childId);
   Future<void> change(String id, void Function(ChildData) edit);
   Future<void> submit(String childId, String taskId);
-  Future<void> requestCashOut(String childId, int amount);
   Future<String> invite(String childId);
   Future<void> revoke(String childId);
   Future<void> close();
@@ -123,9 +122,6 @@ class LocalRepository implements FamilyRepository {
   @override
   Future<void> submit(String childId, String taskId) =>
       change(childId, (c) => c.submit(taskId, DateTime.now()));
-  @override
-  Future<void> requestCashOut(String childId, int amount) =>
-      change(childId, (c) => c.requestCashOut(amount));
   @override
   Future<String> invite(String childId) async => throw DomainError('cloudOnly');
   @override
@@ -286,19 +282,6 @@ class CloudRepository implements FamilyRepository {
         'tasks.$taskId.status': 'review',
         'lastSubmitted': taskId,
       });
-    });
-  }
-
-  @override
-  Future<void> requestCashOut(String childId, int amount) async {
-    require(!parent && linkedChild == childId, 'permission');
-    await db.runTransaction((tx) async {
-      final ref = children.doc(childId);
-      final snap = await tx.get(ref);
-      require(snap.exists, 'permission');
-      final child = ChildData.fromJson(snap.data()!);
-      child.requestCashOut(amount);
-      tx.update(ref, {'cashOutRequest': child.cashOutRequest});
     });
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../assets/library.dart';
 import '../l10n/strings.dart';
 import '../models/family.dart';
@@ -136,7 +137,9 @@ class WelcomeFlow extends StatefulWidget {
 class _WelcomeFlowState extends State<WelcomeFlow> {
   String? mode;
   FamilyRepository? setup;
+  FamilyRepository? restoredParent;
   bool busy = false;
+  bool adultConfirmed = false;
   String? error;
   String t(String key) => widget.strings(key);
   @override
@@ -154,7 +157,14 @@ class _WelcomeFlowState extends State<WelcomeFlow> {
     setState(() => busy = true);
     try {
       final repo = await CloudRepository.resume();
-      if (repo != null) await opened(repo);
+      if (repo != null && repo.parent) {
+        // Do not enter the parent area from a restored session until the
+        // adult has confirmed this is the parent/caregiver area. That keeps
+        // the child route free of both the parent controls and ad SDK use.
+        if (mounted) setState(() => restoredParent = repo);
+      } else if (repo != null) {
+        await opened(repo);
+      }
     } catch (_) {
       if (mounted) setState(() => error = t('connectionError'));
     } finally {
@@ -176,6 +186,24 @@ class _WelcomeFlowState extends State<WelcomeFlow> {
     }
   }
 
+  Future<void> leaveRestoredParent() async {
+    final repo = restoredParent;
+    if (repo == null) return;
+    await FirebaseAuth.instance.signOut();
+    await repo.close();
+    if (mounted) setState(() => restoredParent = null);
+  }
+
+  Future<void> continueRestoredParent() async {
+    final repo = restoredParent;
+    if (repo == null) return;
+    setState(() {
+      restoredParent = null;
+      adultConfirmed = true;
+    });
+    await opened(repo);
+  }
+
   @override
   Widget build(BuildContext context) {
     if (setup != null) {
@@ -183,6 +211,20 @@ class _WelcomeFlowState extends State<WelcomeFlow> {
         strings: widget.strings,
         repository: setup!,
         onOpen: widget.onOpen,
+      );
+    }
+    if (restoredParent != null) {
+      return _ParentAccessGate(
+        strings: widget.strings,
+        onBack: leaveRestoredParent,
+        onContinue: continueRestoredParent,
+      );
+    }
+    if (mode != null && mode != 'child' && !adultConfirmed) {
+      return _ParentAccessGate(
+        strings: widget.strings,
+        onBack: () => setState(() => mode = null),
+        onContinue: () => setState(() => adultConfirmed = true),
       );
     }
     if (mode != null) {
@@ -266,6 +308,39 @@ class _WelcomeFlowState extends State<WelcomeFlow> {
       ]),
     );
   }
+}
+
+/// A calm adult confirmation before any parent account or parent invitation
+/// flow. The child route never reaches this screen and never initializes ads.
+class _ParentAccessGate extends StatelessWidget {
+  final Strings strings;
+  final VoidCallback onBack, onContinue;
+  const _ParentAccessGate({
+    required this.strings,
+    required this.onBack,
+    required this.onContinue,
+  });
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      title: Text(strings('name')),
+      leading: BackButton(onPressed: onBack),
+    ),
+    body: pageBody([
+      const SizedBox(height: 28),
+      const Icon(Icons.family_restroom, size: 48, color: green),
+      const SizedBox(height: 20),
+      heading(strings('parentGateTitle'), strings('parentGateBody')),
+      FilledButton(
+        key: const Key('parent-access-continue'),
+        onPressed: onContinue,
+        child: Text(strings('parentGateContinue')),
+      ),
+      const SizedBox(height: 10),
+      TextButton(onPressed: onBack, child: Text(strings('parentGateBack'))),
+    ]),
+  );
 }
 
 /// The first screen is intentionally a different composition from the app

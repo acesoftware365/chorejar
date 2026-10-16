@@ -47,9 +47,6 @@ class MemoryRepository implements FamilyRepository {
   Future<void> submit(String c, String t) =>
       change(c, (v) => v.submit(t, DateTime.now()));
   @override
-  Future<void> requestCashOut(String id, int amount) =>
-      change(id, (v) => v.requestCashOut(amount));
-  @override
   Future<String> invite(String id) async => 'preview';
   @override
   Future<void> deleteChild(String childId) async {
@@ -158,6 +155,9 @@ void main() {
       await tester.pumpWidget(ChoreJar(prefs: prefs, initialStrings: strings));
       await tester.pumpAndSettle();
       await tester.tap(find.text(strings('joinParent')));
+      await tester.pumpAndSettle();
+      expect(find.text(strings('parentGateTitle')), findsOneWidget);
+      await tester.tap(find.byKey(const Key('parent-access-continue')));
       await tester.pumpAndSettle();
       expect(find.text(strings('joinParentHelp')), findsOneWidget);
       expect(find.byType(TextField), findsNWidgets(3));

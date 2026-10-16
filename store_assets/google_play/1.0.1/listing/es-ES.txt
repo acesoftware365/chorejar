@@ -1,0 +1,47 @@
+Nombre: Mi Paga
+
+Idioma predeterminado: es-ES
+
+Tipo: Aplicación
+
+Categoría: Crianza y familia
+
+Precio: Gratis
+
+Descripción breve:
+Tareas, registro de pagas y metas de ahorro para la familia.
+
+Descripción completa:
+Pequeños pasos, grandes sueños. Mi Paga ayuda a tu familia a crear hábitos de responsabilidad y ahorro.
+
+Como padre o madre puedes crear perfiles, asignar tareas con instrucciones y recompensas, revisar avances, configurar una paga y registrar dinero que ya entregaste fuera de la aplicación. Los niños ven sus tareas, las envían a revisión, siguen su progreso y eligen una meta de ahorro.
+
+La aplicación separa lo que está en revisión, pendiente de recibir, disponible, ahorrado, recibido y gastado. Cada cambio que registra un padre queda en el historial. Un niño no puede aprobar una recompensa, mover dinero, pedir un pago ni registrar un gasto.
+
+Mi Paga es una herramienta familiar para organizar y registrar. No transfiere, guarda, procesa, envía, retira, presta ni paga dinero. No ofrece billetera, cuenta de pago, cuenta bancaria, producto financiero, recompensa en efectivo ni pagos iniciados por niños. Las decisiones sobre dinero o compras ocurren fuera de la app y las toma un padre o tutor.
+
+Vincula un teléfono o tableta infantil mediante código QR, enlace seguro de un solo uso o código de vinculación. Ambos equipos pueden usar Wi-Fi y no necesitan estar en la misma red. El niño no necesita correo ni contraseña.
+
+La app está disponible en español e inglés. La familia elige su país durante el registro para usar el nombre local de la paga.
+
+El área gratuita de padres es para adultos y puede mostrar un banner apto para familias, con tratamiento de edad y sin personalización, después de la confirmación de adulto. El área infantil vinculada no muestra anuncios.
+
+URL de privacidad: https://chorejar-liisgo-2026.web.app/privacy
+
+URL de soporte: https://chorejar-liisgo-2026.web.app/support
+
+Correo de soporte: sales@liisgo.com
+
+Sitio del desarrollador: https://liisgo.com/
+
+Declaración de audiencia sugerida:
+Los usuarios principales son padres, madres y cuidadores de 18 años o más. Los perfiles infantiles controlados por un padre sirven a edades de 6 a 8 y de 9 a 12 años. Seleccionar esos tres grupos, no 5 años o menos ni 13 a 17. Un niño no crea una cuenta, no entrega datos de contacto y no ve anuncios. El área adulta requiere confirmación de adulto y usa banners sin personalización ni anuncios dirigidos por intereses.
+
+Declaración para revisión sobre dinero y recompensas:
+Mi Paga es una herramienta familiar para organizar y registrar. Un padre registra una recompensa, paga, entrega de dinero, movimiento de ahorro o gasto solamente después del hecho en la vida real. El servicio nunca transfiere, guarda ni entrega fondos. Un niño no puede pedir, retirar, aprobar, enviar ni gastar dinero dentro de la app.
+
+Inventario de seguridad de datos que debe completarse con el binario final:
+Correo del padre para autenticación; IDs de cuenta e identificadores de equipo vinculado para funcionamiento; apodos, tareas, metas, configuración de paga y registros monetarios ingresados por la familia para funcionamiento; ubicación aproximada por IP, interacciones de producto, diagnóstico e identificadores de dispositivo/cuenta del SDK Google Mobile Ads para anuncios, analítica y prevención de fraude en el área de padres. No declarar que la app no recopila datos.
+
+URL para eliminar cuenta:
+https://chorejar-liisgo-2026.web.app/delete-account

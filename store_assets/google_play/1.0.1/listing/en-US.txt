@@ -1,0 +1,47 @@
+App name: ChoreJar
+
+Default language: en-US
+
+App type: App
+
+Category: Parenting
+
+Pricing: Free
+
+Short description:
+Family chores, allowance records, and savings goals.
+
+Full description:
+Small steps, big dreams. ChoreJar helps families build responsibility and saving habits together.
+
+Parents and caregivers create family profiles, assign chores with instructions and rewards, review completed work, set an allowance, and record money they have already given outside the app. A parent-controlled child profile can see chores, submit them for review, follow progress, and choose a savings goal.
+
+ChoreJar keeps family records in clear categories: waiting for approval, owed, available, saved, received, and spent. Every parent-recorded change remains in the family history. A child can never approve a reward, move money, request a payout, or record an expense.
+
+ChoreJar is a household organizer and record keeper. It does not transfer, hold, process, send, withdraw, cash out, lend, or pay money. It does not provide a wallet, payment account, bank account, financial product, cash reward, or child-initiated payout. Real-world money or purchase decisions are made by a parent outside the app.
+
+Connect a child phone or tablet with a secure one-time QR code, link, or pairing code. Both devices can use Wi-Fi and do not need to be on the same network. A child profile does not need an email address or password.
+
+The app is available in English and Spanish. Families choose a country during setup, and ChoreJar uses familiar regional allowance terminology.
+
+The free parent area is for adults and may show age-restricted, non-personalized, family-safe banner ads after adult confirmation. The linked child area does not show ads.
+
+Privacy policy URL: https://chorejar-liisgo-2026.web.app/privacy
+
+Support URL: https://chorejar-liisgo-2026.web.app/support
+
+Support email: sales@liisgo.com
+
+Developer website: https://liisgo.com/
+
+Suggested target audience declaration:
+Primary intended users are parents and caregivers aged 18+. Parent-controlled child profiles support children and teens ages 6–17. Google Play requires consecutive age groups for this mixed audience: select 6–8, 9–12, 13–15, 16–17, and 18 and over, but not 5 and under. A child profile cannot create an account, provide contact details, or see ads. The adult parent area is shown only after adult confirmation and uses age-restricted, non-personalized banner ads.
+
+Store-review explanation for money and rewards:
+ChoreJar is a household organizer and record keeper. A parent manually records a chore reward, allowance, money given, savings move, or expense only after the real-world event. The service never transfers, stores, or pays out funds. A child cannot request, withdraw, cash out, approve, send, or spend money in the app.
+
+Data safety inventory to complete from the final production build:
+Parent email for account authentication; app user IDs and linked-device identifiers for account functionality; family-entered nicknames, chores, goals, allowance settings, and money records for app functionality; Google Mobile Ads SDK approximate location from IP, product interactions, diagnostics, and device/account identifiers for ads, analytics, and fraud prevention in the parent area. Do not mark the app as having no data collection.
+
+Account deletion URL:
+https://chorejar-liisgo-2026.web.app/delete-account
