@@ -404,7 +404,9 @@ class _SignInState extends State<SignIn> {
       if (mounted) widget.onOpen(repo);
       return;
     }
-    require(email.text.trim().contains('@'));
+    // This is a sign-in form, so never fall back to the generic validation
+    // message about amounts when an email is incomplete or malformed.
+    require(email.text.trim().contains('@'), 'authError');
     require(password.text.length >= 8, 'weakPassword');
     final auth = FirebaseAuth.instance;
     if (creating && !accountCreated) {

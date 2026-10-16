@@ -1018,3 +1018,16 @@ Alex, anuncios desactivados y jamás inicializa Firebase o una sesión. No
 incluyen datos reales, email, contraseña, código de vínculo ni creatividad de
 anuncio de prueba. Antes de subir se debe comparar contra el binario final
 firmado y los tamaños requeridos por cada tienda.
+
+### 2026-10-16 — verificación autorizada de acceso
+
+Se verificó la credencial de la cuenta indicada por el propietario mediante
+Firebase Authentication con la configuración iOS de ChoreJar. Firebase aceptó
+el acceso y devolvió una sesión válida. No se guardaron tokens, no se modificó
+la cuenta y no se restableció la contraseña.
+
+El intento visual en Device Hub no llegó al servicio: su teclado de emulación
+alteró caracteres especiales del correo antes de enviarlo y la app lo rechazó
+por validación local. Se ajustó ese caso para que la pantalla de acceso muestre
+el mensaje propio de autenticación y nunca el texto genérico sobre campos e
+importes. El `TextField` de producción conserva teclado de correo estándar.
