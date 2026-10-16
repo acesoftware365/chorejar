@@ -1031,3 +1031,13 @@ alteró caracteres especiales del correo antes de enviarlo y la app lo rechazó
 por validación local. Se ajustó ese caso para que la pantalla de acceso muestre
 el mensaje propio de autenticación y nunca el texto genérico sobre campos e
 importes. El `TextField` de producción conserva teclado de correo estándar.
+
+### 2026-10-16 — inicio de sesión en simulador Duo
+
+Se confirmó el acceso completo dentro de la versión de depuración de Duo:
+correo y contraseña aceptados, sesión restaurada y tablero de familia abierto.
+El problema era exclusivo de Device Hub: con `Simulate Hardware Keyboard` el
+atajo de automatización introducía `2` en lugar de `@`. Para probar correos en
+el simulador, abrir **Device → Keyboard → Toggle Software Keyboard** y tocar
+la tecla `@` del teclado de iOS. Esa ruta deja el correo intacto; el acceso
+funciona y mantiene únicamente el banner de prueba con la versión visible.
