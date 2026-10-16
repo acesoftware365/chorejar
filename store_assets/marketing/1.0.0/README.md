@@ -27,6 +27,7 @@ text-only so localizations do not depend on an image model rendering words.
 
 ## Screenshot rule
 
-Put real device captures in `store_assets/app_store/1.0.0/screenshots/` and
-the matching Google Play screenshot folder. Never submit an image that shows a
-test-ad creative, placeholder, account email, or child-identifying data.
+Put real device captures from **iPhone 17 Pro Max** in
+`store_assets/app_store/1.0.0/screenshots/` and the matching Google Play
+screenshot folder. Never submit an image that shows a test-ad creative,
+placeholder, account email, or child-identifying data.

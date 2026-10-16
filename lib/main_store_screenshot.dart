@@ -17,6 +17,12 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   await prefs.setString('language', _language == 'en' ? 'en' : 'es');
+  await prefs.setString(
+    'previewGoalName',
+    _language == 'en' ? 'My iPhone' : 'Mi iPhone',
+  );
+  await prefs.setString('previewGoalImage', 'iphone');
+  await prefs.setInt('previewGoalAmount', 10000);
   final parent = _role == 'parent';
   runApp(
     application.ChoreJar(

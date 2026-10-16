@@ -1041,3 +1041,21 @@ atajo de automatización introducía `2` en lugar de `@`. Para probar correos en
 el simulador, abrir **Device → Keyboard → Toggle Software Keyboard** y tocar
 la tecla `@` del teclado de iOS. Esa ruta deja el correo intacto; el acceso
 funciona y mantiene únicamente el banner de prueba con la versión visible.
+
+### 2026-10-16 — dispositivo oficial para capturas de tienda
+
+El propietario indicó que todas las capturas de Google Play y App Store deben
+proceder de **iPhone 17 Pro Max**. La guía de materiales ahora lo marca como
+única fuente de envío para inglés y español. iPhone 16e y Duo se conservan
+para comprobar diseño adaptable; sus capturas y los borradores ya existentes
+no son material de subida. Se inició el objetivo aislado de capturas en iPhone
+17 Pro Max con perfil sintético y anuncios desactivados, para reproducir las
+secuencias padre/niño sin Firebase ni datos personales.
+
+Se capturaron y revisaron cuatro candidatas limpias de 1320×2868: padre y
+niño en `en-US`, y padre y niño en `es-419`. Están duplicadas para cada tienda
+en `store_assets/{app_store,google_play}/1.0.0/screenshots/candidates/` y
+siguen siendo candidatas hasta comparar contra el binario firmado. Durante
+esta verificación se corrigieron los textos de datos sintéticos para que el
+escenario en inglés también use tareas, instrucciones y meta en inglés.
+`flutter analyze` y los 45 tests locales terminaron correctamente.

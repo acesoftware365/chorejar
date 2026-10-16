@@ -24,32 +24,47 @@ class ChildPreviewRepository implements FamilyRepository {
   late ChildData child;
   ChildPreviewRepository(this.prefs) {
     final now = DateTime.now();
+    final english = prefs.getString('language') == 'en';
     child = ChildData(
       id: 'preview',
       name: 'Alex',
       currency: 'USD',
-      goalName: prefs.getString('previewGoalName') ?? 'Mi iPhone',
+      goalName:
+          prefs.getString('previewGoalName') ??
+          (english ? 'My iPhone' : 'Mi iPhone'),
       goalImage: prefs.getString('previewGoalImage') ?? 'iphone',
       goalAmount: prefs.getInt('previewGoalAmount') ?? 10000,
       mode: 'tasks',
     );
     child.addTask(
-      Task(id: 'earned', title: 'Ayudar en casa', amount: 10050, due: day(now)),
+      Task(
+        id: 'earned',
+        title: english ? 'Help at home' : 'Ayudar en casa',
+        amount: 10050,
+        due: day(now),
+      ),
     );
     child.submit('earned', now);
     child.review('earned', true, '', now);
     child.move('pay', 'payment', 9000, '', now);
     child.move('save', 'saving', 5700, '', now);
     child.addTask(
-      Task(id: 'latest', title: 'Leer', amount: 200, due: day(now)),
+      Task(
+        id: 'latest',
+        title: english ? 'Read' : 'Leer',
+        amount: 200,
+        due: day(now),
+      ),
     );
     child.submit('latest', now.add(const Duration(seconds: 1)));
     child.review('latest', true, '', now.add(const Duration(seconds: 1)));
     child.addTask(
       Task(
         id: 'room',
-        title: 'Ordenar mi habitación',
-        instructions: 'Guarda tus juguetes y deja la cama lista.',
+        title: english ? 'Tidy my room' : 'Ordenar mi habitación',
+        instructions: english
+            ? 'Put away your toys and make the bed.'
+            : 'Guarda tus juguetes y deja la cama lista.',
         amount: 200,
         due: day(now),
       ),
@@ -57,8 +72,10 @@ class ChildPreviewRepository implements FamilyRepository {
     child.addTask(
       Task(
         id: 'plants',
-        title: 'Regar las plantas',
-        instructions: 'Un poquito de agua para cada planta.',
+        title: english ? 'Water the plants' : 'Regar las plantas',
+        instructions: english
+            ? 'Give each plant a little water.'
+            : 'Un poquito de agua para cada planta.',
         amount: 100,
         due: day(now),
       ),
