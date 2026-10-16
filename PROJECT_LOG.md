@@ -1005,3 +1005,16 @@ Max y Duo. En Duo, Xcode 27.1 instalado por separado confirmó modo cerrado y
 modo abierto horizontal; la captura QA abierta incluye banner de prueba y la
 etiqueta de versión. Esas capturas son evidencia interna y no capturas para
 las tiendas porque contienen `Test mode` y datos de vista previa local.
+
+### 2026-10-16 — secuencia de capturas de tienda, padre y niño
+
+Se prepararon dos secuencias completas de cinco pantallas de padre y cinco de
+niño: inglés (`en-US`) y español latinoamericano (`es-419`). Cubren tareas,
+revisión, dinero/ahorro, avance de meta, retiro, ajustes/vinculación y crear
+tarea. Están en `store_assets/{google_play,app_store}/1.0.0/screenshots/drafts/`.
+Se capturaron desde las pantallas reales de Flutter sobre Duo usando un nuevo
+entrypoint aislado, `main_store_screenshot.dart`; solo usa perfil sintético
+Alex, anuncios desactivados y jamás inicializa Firebase o una sesión. No
+incluyen datos reales, email, contraseña, código de vínculo ni creatividad de
+anuncio de prueba. Antes de subir se debe comparar contra el binario final
+firmado y los tamaños requeridos por cada tienda.

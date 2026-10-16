@@ -14,6 +14,12 @@ release binary before uploading it.
 Spanish welcome capture from the normal application, not the local demo.
 It likewise needs a final signed-release/device-size check before upload.
 
+The staged Spanish parent/child narrative is mirrored in
+`drafts/es-419/`. It contains five screens per role and is ready for visual
+review before the final signed-release capture.
+
+The matching English parent/child set is in `drafts/en-US/`.
+
 Never submit the test ad banner, a test-ad creative, a real account email,
 password, pairing code, or identifiable child data. Store screenshots must
 reflect the final free parent/child experience and its actual features.

@@ -18,6 +18,13 @@ release behaves identically.
 equivalent from the normal application. It is also a reference candidate, not
 a replacement for the required five-screen Spanish set.
 
+The complete staged Spanish narrative is in `drafts/es-419/parent/` and
+`drafts/es-419/child/`: five screens for each role, captured with only
+synthetic content and no ads. Review the draft README before upload.
+
+The same ten-screen parent/child narrative is available in English under
+`drafts/en-US/parent/` and `drafts/en-US/child/`.
+
 The capture must not show a test ad, a real email address, a pairing code, or
 a child-identifying name. Keep the final installed version and country/locale
 visible only when the store permits it. Do not use the development build's
