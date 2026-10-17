@@ -24,3 +24,7 @@ the public privacy page and the store declarations must stay consistent.
 
 Do not declare subscriptions or an ad-free plan in either store until the
 purchase flow and store products are implemented and reviewed.
+
+The approved commercial target for that future work is recorded in
+`monetization/SUBSCRIPTION_PLAN.md`: $0.99 USD monthly and $9.99 USD yearly.
+It remains intentionally disabled for 1.0.1.

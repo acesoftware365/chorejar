@@ -75,14 +75,15 @@ La app no está publicada en tiendas. La preparación de la primera entrega usa
 `1.0.1+11`, enlaces públicos de privacidad, términos y soporte en el hosting de
 ChoreJar, y los IDs reales de AdMob únicamente para builds de tienda. El AAB
 firmado y el IPA de distribución de `1.0.1 (11)` están listos en `build/`, y
-fueron inspeccionados antes de preparar la ficha. Android exige una clave de
+fueron inspeccionados antes de preparar la ficha. Google Play muestra la
+entrega inicial de Estados Unidos **en revisión**; App Store Connect está
+preparado para revisión y configurado gratuito en 175 países o regiones. Android exige una clave de
 subida del propietario en `android/key.properties`; nunca permite la firma de
 depuración en release. iOS usa firma automática del equipo `3M9854JZ4Y` y
 requiere una identidad Apple Distribution y un perfil App Store válidos antes
-de archivar. El titular todavía debe aceptar los acuerdos de Apple y crear o
-dar acceso al registro de App Store Connect para `com.liisgo.chorejar`; la
-certificación infantil de Play Console también debe hacerla personalmente el
-titular. Esos pasos no se sustituyen con esta documentación.
+de archivar. Los planes de $0.99 mensual y $9.99 anual están documentados para
+una versión futura, pero no se activan hasta que el flujo de compra, restauración
+y derechos se implemente y revise en ambas tiendas.
 
 ### Dos padres en una familia
 En una cuenta conectada, Ajustes → Acceso para dos padres permite al creador invitar una segunda cuenta con código privado de 10 minutos y un solo uso. El segundo adulto activa «Tengo una invitación de otro padre» al iniciar sesión o registrarse con su propio correo. Debe usar una cuenta que todavía no pertenezca a otra familia; no se fusionan familias existentes. Ambos administran los mismos niños, tareas y saldos. Solo el creador puede invitar y eliminar toda la familia. El segundo padre puede abandonar el acceso o eliminar únicamente su propia cuenta; los datos familiares se conservan. La demo local solo explica esta función.

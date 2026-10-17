@@ -1147,3 +1147,24 @@ incorporado transitivamente por Firebase/Firestore. Por ello no se debe
 declarar que el IPA usa exclusivamente cifrado del sistema operativo: la
 clasificación o documentación aplicable debe confirmarse con el titular antes
 de enviar la versión.
+
+### 2026-10-16 — precio y disponibilidad mundial de App Store Connect
+
+El titular autorizó el lanzamiento mundial. En App Store Connect se confirmó
+el calendario gratuito de `1.0.1` en los 175 países o regiones soportados y se
+configuró la disponibilidad como «Available on App Release» en todos ellos.
+La aplicación de iOS no está publicada ni enviada a revisión todavía; sigue
+en Prepare for Submission hasta resolver los datos de revisión, derechos de
+contenido y cumplimiento de exportación.
+
+Google Play ya mostraba la entrega inicial de Estados Unidos `1.0.1 (11)` en
+revisión. Ampliar ese lanzamiento a otros países exige retirar esa revisión y
+volver a enviarla, por lo que no se alteró la entrega activa sin una
+instrucción específica del titular.
+
+Se registró el objetivo de monetización para una versión posterior: $0.99 USD
+al mes y $9.99 USD al año. La pantalla actual comunica correctamente que los
+planes pagados aún no están disponibles y no contiene StoreKit ni Google Play
+Billing. No se crearon productos de compra ni se presentó una oferta al
+cliente: primero hay que implementar compra, restauración, derechos y textos
+de renovación/cancelación, probarlos y remitir un nuevo build.

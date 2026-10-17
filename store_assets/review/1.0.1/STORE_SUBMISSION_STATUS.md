@@ -36,11 +36,17 @@ they are an adult and opens the parent area.
 - The signed AAB is uploaded to the Google Play production release. Release
   notes in en-US and es-419, full rollout after approval, and the initial
   United States availability are saved. Google Play reports the submission as
-  **In review** as of October 16, 2026; it is not yet published.
+  **In review** as of October 16, 2026; it is not yet published. Expanding
+  Google Play to additional territories now would require withdrawing that
+  in-review submission and submitting it again.
 - The App Store Connect record is **ChoreJar: Family Chores** (Apple ID
   `6823823108`) and its iOS 1.0.1 page is in Prepare for Submission. The IPA
   1.0.1 (11) was delivered. English (U.S.) and Spanish (Mexico) metadata and
   five App Store compliant iPhone screenshots for each localization are saved.
+- App Store Connect now has a free price schedule in all 175 supported
+  countries or regions, and its availability is set to **Available on App
+  Release** worldwide. This means the iOS app will be free globally after it
+  clears App Review; it has not yet been submitted or published.
 
 ## Account-holder actions before review
 
@@ -55,9 +61,8 @@ they are an adult and opens the parent area.
    export classification or required documentation; do not claim the IPA uses
    only Apple system encryption. Select build 11 only after its compliance
    state is resolved.
-4. **Apple availability and price:** set the free price and confirm the
-   intended territories before submission. The matching conservative launch
-   choice is United States only.
+4. **Apple availability and price:** complete. The app is free in all 175
+   supported countries or regions and will be available on release worldwide.
 5. Publish App Privacy and submit the selected build only after the preceding
    items are confirmed. Recheck Data safety and App Privacy if the SDK
    inventory, advertising setup, account deletion behavior or final signed
