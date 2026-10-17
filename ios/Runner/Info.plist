@@ -4,6 +4,7 @@
 <dict>
     <key>GADApplicationIdentifier</key><string>$(GAD_APPLICATION_IDENTIFIER)</string>
     <key>GADDelayAppMeasurementInit</key><true/>
+    <key>ITSAppUsesNonExemptEncryption</key><false/>
     <key>UIApplicationSceneManifest</key>
     <dict>
         <key>UIApplicationSupportsMultipleScenes</key><false/>

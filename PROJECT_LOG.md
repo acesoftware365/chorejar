@@ -1294,3 +1294,13 @@ launched on the active Android emulator without a startup crash. Its test copy
 and SHA-256 are documented in
 `store_assets/validation/1.0.2/TEST_BUILD_2026-10-17.md`. Premium remained
 disabled and no store submission or production upload was performed.
+
+### 2026-10-17 — Apple export-compliance declaration
+
+Added `ITSAppUsesNonExemptEncryption = false` to `ios/Runner/Info.plist` for
+the next iOS build. ChoreJar has no proprietary or custom cryptographic
+feature; it relies on standard operating-system/service transport security.
+The declaration removes the recurring App Store Connect questionnaire for a
+newly uploaded build that only uses exempt encryption. The existing uploaded
+build remains unchanged and must be answered in App Store Connect if it still
+shows the prompt. See `store_assets/review/1.0.2/EXPORT_COMPLIANCE.md`.
