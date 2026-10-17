@@ -1311,3 +1311,9 @@ shows the prompt. See `store_assets/review/1.0.2/EXPORT_COMPLIANCE.md`.
 **Materiales:** creados los textos reales de Google Play y App Store para 1.0.2 en inglés y español latinoamericano, las notas de revisión y el manifiesto de carga. Los artes de Header y Search Results se cargaron en App Store Connect para inglés (EE. UU.) y español (México).
 **Verificado:** `flutter analyze` sin problemas y `flutter test --concurrency=1` con 51 pruebas aprobadas. La prueba adicional confirma que la compilación predeterminada no expone checkout, precios ni restauración.
 **Pendiente:** compilar AAB/IPA de producción 1.0.2 (12), verificar contenido/versiones, cargar los binarios, adjuntar capturas actuales y completar los campos de revisión. Las suscripciones mensuales/anuales quedan fuera de esta entrega hasta contar con productos y verificación listos.
+
+### 2026-10-17 — compilaciones oficiales y carga iniciada
+**Compilado y verificado:** AAB de producción `1.0.2 (12)` firmado para `com.liisgo.chorejar`; inspección directa del AAB confirmó minSdk 24, targetSdk 36, App ID de anuncios Android de producción y unidad banner Android autorizada. IPA de distribución `1.0.2 (12)` firmado por la cuenta de distribución de LIISGO LLC; inspección del IPA confirmó identificador `com.liisgo.chorejar`, versión/build `1.0.2 (12)`, App ID de anuncios iOS de producción y `ITSAppUsesNonExemptEncryption=false`.
+**Cargado:** Header y Search Results de App Store Connect para inglés (EE. UU.) y español (México). El IPA fue entregado a App Store Connect y quedó en procesamiento de Apple.
+**Google Play:** la producción `1.0.1 (11)` permanece en revisión. La nueva producción `1.0.2 (12)` requiere crear su entrega y retirar/sustituir la revisión previa antes de enviarla; esa acción no se ejecutó aún.
+**Comprobaciones anteriores vigentes:** `flutter analyze` sin problemas y `flutter test --concurrency=1` con 51 pruebas aprobadas antes de las compilaciones oficiales.
