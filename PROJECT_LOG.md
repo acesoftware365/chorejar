@@ -1304,3 +1304,10 @@ The declaration removes the recurring App Store Connect questionnaire for a
 newly uploaded build that only uses exempt encryption. The existing uploaded
 build remains unchanged and must be answered in App Store Connect if it still
 shows the prompt. See `store_assets/review/1.0.2/EXPORT_COMPLIANCE.md`.
+
+### 2026-10-17 — 1.0.2 (12) release preparation
+**Solicitado:** preparar y subir una versión nueva con todos los arreglos, incluyendo los artes de Header y Search Results.
+**Ejecutado:** se eliminó del flujo visible de 1.0.2 toda oferta, precio, compra y restauración de Premium porque los productos de tienda y el verificador seguro aún no están completos. El área de padres conserva el plan gratis, controles de anuncios, reporte, privacidad y términos; el área infantil sigue sin anuncios ni compras. `main.dart` ya no inicia el controlador de membresías si no existe configuración completa.
+**Materiales:** creados los textos reales de Google Play y App Store para 1.0.2 en inglés y español latinoamericano, las notas de revisión y el manifiesto de carga. Los artes de Header y Search Results se cargaron en App Store Connect para inglés (EE. UU.) y español (México).
+**Verificado:** `flutter analyze` sin problemas y `flutter test --concurrency=1` con 51 pruebas aprobadas. La prueba adicional confirma que la compilación predeterminada no expone checkout, precios ni restauración.
+**Pendiente:** compilar AAB/IPA de producción 1.0.2 (12), verificar contenido/versiones, cargar los binarios, adjuntar capturas actuales y completar los campos de revisión. Las suscripciones mensuales/anuales quedan fuera de esta entrega hasta contar con productos y verificación listos.

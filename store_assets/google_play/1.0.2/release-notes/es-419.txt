@@ -1,0 +1,7 @@
+Mi Mesadita 1.0.2 mejora la experiencia de cada familia.
+
+• Mejoramos las pantallas de inicio de sesión y creación de cuenta para teléfonos, tabletas y pantallas plegables.
+• Aclaramos la vinculación del dispositivo infantil mediante código QR, enlace seguro de un solo uso o código de vinculación; funciona con Wi-Fi o redes diferentes.
+• Mejoramos la visualización del progreso de dinero y metas para padres y niños.
+• Añadimos controles y enlaces de privacidad más claros para anuncios solo en el área de padres. El área infantil vinculada continúa sin anuncios.
+• Mejoramos el nombre regional de la mesada en español e inglés.

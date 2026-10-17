@@ -8,19 +8,17 @@ advice and not a promise of store approval.
 
 ## Decision
 
-**Do not submit version 1.0.2 (12) with Premium merely displayed but disabled.**
+**Submit 1.0.2 (12) as a free update without checkout.**
 The source intentionally defaults `SUBSCRIPTIONS_ENABLED` to `false` until it
-has a secure verifier and complete store configuration. That is correct for
-development, but it must not become a dormant paid feature in an App Review
-build. Before submission, either:
+has a secure verifier and complete store configuration. The signed 1.0.2 build
+therefore removes every Premium offer, price, purchase and restore route from
+the visible release experience and metadata. The parent-only screen contains
+only free-plan, advertising-reporting, privacy and terms controls. This avoids
+a dormant or undocumented paid feature.
 
-1. finish the complete Premium flow below and submit the app and subscription
-   products together; or
-2. remove every Premium offer, price, purchase and restore route from the
-   shipping binary and metadata.
-
-The intended release is option 1. The currently reviewed 1.0.1 (11) release
-remains a free parent-led organizer with a parent-only banner.
+The monthly and annual plan work remains a future release item; do not create,
+attach, describe, or submit an in-app purchase with 1.0.2. The release remains
+a free parent-led organizer with a parent-only banner.
 
 ## Product boundary that must remain true
 
@@ -42,8 +40,8 @@ remains a free parent-led organizer with a parent-only banner.
 | --- | --- | --- |
 | **1.2 — User-generated content** | ChoreJar is not a public UGC or social service. Family records are visible only inside a parent-controlled private family. | Keep public discovery, chat and cross-family sharing out of the app. Explain the private, adult-controlled model in App Review Notes. If any public sharing or community feature is added later, implement Apple’s required filtering, reporting, blocking and published contact safeguards before release. |
 | **1.3 — Kids Category** | The child view is a limited companion experience, while the product also has adult ads and adult-only subscriptions. | Keep **Made for Kids / Kids Category** set to **No**. The primary user is a parent or caregiver. Reassess the product and its advertising design from scratch if this setting ever changes. |
-| **2.3.1 and 2.5.19 — accurate, visible functionality** | Parent and child features are visible through the intended flows. Premium is deliberately disabled while its server and stores are unfinished. | This is a release blocker for Premium: no hidden, dormant or undocumented purchase path may remain in the signed build. Provide complete reviewer instructions and disclose every non-obvious pairing, ad and subscription feature. |
-| **2.3.2 and 3.1.1 / 3.1.2 — subscriptions** | The client uses native in-app purchase preparation and limits plans to authorized parents. The actual products, secure entitlement verification and sandbox evidence are not complete. | Create the monthly and annual Apple/Google products, show each storefront-provided price and term before purchase, verify server-side, support Restore purchases, and submit products with the binary. Do not add an external purchase link. |
+| **2.3.1 and 2.5.19 — accurate, visible functionality** | Parent and child features are visible through intended flows. Checkout is absent from the 1.0.2 UI and store text. | Verify no price, purchase or restore control is reachable in the signed build. Provide reviewer instructions for pairing and adult-only ads. |
+| **2.3.2 and 3.1.1 / 3.1.2 — subscriptions** | No subscription or other checkout is presented in version 1.0.2. | Do not attach a subscription product to this review. Before a future paid release, complete the verifier, products, storefront pricing, restore flow, and Sandbox/license tests. |
 | **2.3.3 — screenshots** | The existing product screenshots show actual parent and child flows. | Keep five or more truthful screenshots per required device family. Do not use mockups that depict features the build does not provide. |
 | **2.3.14 — creative assets** | Ready for upload. The Header and Search Results artwork depicts ChoreJar’s jar, task/goal concept and brand. It has no price, discount, external website, competing platform, personal data or unsupported performance claim. | Upload the final localized files listed below, inspect each App Store Connect preview, and keep the version of each file that matches its locale. |
 | **2.5.18 — advertising** | The banner is initialized and displayed only in the adult parent area; child routes omit it. The parent has a reporting path. | Retest the final signed build: parent view may show the banner; child preview and linked child session must never show it. Recheck the final SDK privacy report and age-rating answers. |
@@ -92,13 +90,12 @@ storefront content plan.
 
 1. Confirm category **Lifestyle** and **Made for Kids: No**.
 2. Confirm the privacy-policy URL and support contact are live.
-3. Upload Header/Search Results assets and inspect the preview on each enabled
-   localization.
+3. Header/Search Results assets are uploaded for English (U.S.) and Spanish
+   (Mexico); inspect the preview before review submission.
 4. Attach only screenshots from the actual 1.0.2 build.
-5. When Premium is complete, select the two submitted subscriptions, attach the
-   final build, populate the review notes, and submit them together.
+5. Do not attach subscriptions or describe a checkout in this release.
 6. Set automatic release only after the account holder has reviewed all legal,
-   banking, tax, pricing and availability choices.
+   privacy, availability, and release choices.
 
 ## Authoritative references
 

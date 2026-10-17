@@ -44,7 +44,9 @@ Future<void> main() async {
   }
   // Starts the purchase listener before the first screen. It is inert unless a
   // future release explicitly enables an HTTPS verifier and checkout flag.
-  unawaited(Membership.instance.start());
+  if (MembershipConfiguration.checkoutConfigured) {
+    unawaited(Membership.instance.start());
+  }
   runApp(ChoreJar(prefs: prefs, firebaseReady: ready));
 }
 

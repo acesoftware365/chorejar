@@ -1,0 +1,7 @@
+ChoreJar 1.0.2 improves the family setup experience.
+
+• Refined the parent sign-in and account-creation screens for phones, tablets, and foldable displays.
+• Made child device linking clearer with one-time QR codes, secure links, and pairing codes that work over Wi-Fi or different networks.
+• Improved parent and child money and goal progress displays.
+• Added clearer parent-only ad controls and privacy links. The linked child area remains ad-free.
+• Improved English and Spanish regional allowance wording.

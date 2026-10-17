@@ -10,12 +10,14 @@ void main() {
     expect(ads.showBanner, isFalse);
     ads.dispose();
   });
+
   test('a ready parent ad service keeps the fixed banner available', () {
     final ads = Advertising()..ready = true;
     expect(ads.showBanner, isTrue);
     ads.dispose();
   });
-  testWidgets('unconfigured plans keep purchase controls disabled', (
+
+  testWidgets('default release does not expose a subscription checkout', (
     tester,
   ) async {
     final strings = await Strings.load('es');
@@ -24,13 +26,12 @@ void main() {
         home: MembershipScreen(strings: strings, parentAuthorized: true),
       ),
     );
-    expect(find.text(strings('premiumPlan')), findsWidgets);
-    final monthlyPlan = find.widgetWithText(
-      FilledButton,
-      strings('chooseMonthlyPlan'),
-    );
-    await tester.scrollUntilVisible(monthlyPlan, 160);
-    final monthlyButton = tester.widget<FilledButton>(monthlyPlan);
-    expect(monthlyButton.onPressed, isNull);
+
+    expect(find.text(strings('membershipComingSoon')), findsOneWidget);
+    expect(find.text(strings('chooseMonthlyPlan')), findsNothing);
+    expect(find.text(strings('chooseYearlyPlan')), findsNothing);
+    expect(find.text(strings('restorePurchases')), findsNothing);
+    expect(find.text(r'$0.99'), findsNothing);
+    expect(find.text(r'$9.99'), findsNothing);
   });
 }
