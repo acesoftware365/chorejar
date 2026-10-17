@@ -37,9 +37,10 @@ they are an adult and opens the parent area.
   notes in en-US and es-419 and full rollout after approval are saved. On
   October 16, 2026, the account holder authorized withdrawing the initial
   United States-only review, expanding the production target to all 177 listed
-  countries or regions plus **Rest of World**, and resubmitting. Google Play
-  now shows **Changes in review** while its automated checks run; it is not yet
-  published.
+  countries or regions plus **Rest of World**, and resubmitting. Google's
+  automated checks completed successfully and Google Play confirms that the
+  changes are now **in review**. It is not yet published; the full rollout will
+  begin automatically after Google approves it.
 - The App Store Connect record is **ChoreJar: Family Chores** (Apple ID
   `6823823108`) and its iOS 1.0.1 page is in Prepare for Submission. The IPA
   1.0.1 (11) was delivered. English (U.S.) and Spanish (Mexico) metadata and
