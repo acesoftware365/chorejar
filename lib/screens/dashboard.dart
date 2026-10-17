@@ -1539,8 +1539,10 @@ class _DashboardState extends State<Dashboard> with WidgetsBindingObserver {
                           Navigator.pop(ctx);
                           Navigator.of(context).push(
                             MaterialPageRoute<void>(
-                              builder: (_) =>
-                                  MembershipScreen(strings: widget.strings),
+                              builder: (_) => MembershipScreen(
+                                strings: widget.strings,
+                                parentAuthorized: parent,
+                              ),
                             ),
                           );
                         },

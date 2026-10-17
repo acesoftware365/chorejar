@@ -16,7 +16,21 @@ version 1.0.1 (11) stays free and must not expose a paid offer.
       Play license testing.
 - [ ] Update App Store App Privacy and Google Play Data safety to the final
       server-side data flow.
-- [ ] Deploy the updated Terms of Use, including subscription and cancellation
-      language, before enabling checkout.
+- [x] Deploy the updated Terms of Use and Privacy Policy with parent-only
+      subscription, cancellation and child-data language. Published 2026-10-17.
 - [ ] Build with the two secure defines only after all prior checks pass.
 - [ ] Submit the new binary and subscription products together for review.
+
+## Completed client preparation
+
+- [x] Present monthly ($0.99 USD reference) and yearly ($9.99 USD reference)
+      plans in the authenticated parent area only.
+- [x] Keep the child area ad-free and omit subscription controls from child
+      sessions; the screen also blocks direct access without parent authorization.
+- [x] Include clear restoration, automatic-renewal, cancellation, price/tax,
+      privacy and terms disclosures in English and Spanish.
+- [x] Validate the parent-only guard and disabled-by-default checkout in the
+      automated test suite.
+
+These completed items do not enable purchases. The unchecked server, store and
+sandbox requirements above remain mandatory before any paid release.

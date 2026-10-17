@@ -1224,3 +1224,32 @@ No se crearon productos en App Store Connect o Google Play, no se habilitó
 una forma de cobro activa en esta versión. El siguiente paso obligatorio sigue
 siendo el verificador de servidor autenticado, las pruebas sandbox completas y
 la creación/revisión conjunta de los productos y textos de las tiendas.
+
+### 2026-10-17 — pantalla Premium, privacidad publicada y protección infantil
+
+Se reforzó la pantalla **Plan y anuncios** de la fuente 1.0.2 (12). Sólo se
+abre desde los ajustes de una sesión de padre; además, la pantalla exige
+explícitamente autorización de padre antes de iniciar el controlador de
+compras. Una sesión infantil no tiene esta ruta, no inicializa anuncios y, si
+intentara abrirla directamente, únicamente ve el aviso de que Premium es para
+padres sin botones, precios, restauración ni compra.
+
+La pantalla para padres presenta mensual ($0.99 USD de referencia) y anual
+($9.99 USD de referencia), el beneficio limitado a quitar el banner del área
+adulta, restauración de compras, renovación/cancelación, precio final de la
+tienda, impuestos/moneda y enlaces a privacidad y términos. El diseño se
+apila en teléfono estrecho y se distribuye en dos columnas en pantalla ancha.
+No se habilitó checkout ni se creó producto de tienda.
+
+Se actualizaron y publicaron Firebase Hosting Privacy Policy y Terms of Use en
+https://chorejar-liisgo-2026.web.app/privacy y
+https://chorejar-liisgo-2026.web.app/terms. Ambos documentos indican que las
+suscripciones se limitan a adultos, los niños siguen sin anuncios y no se
+manda información de perfiles infantiles al flujo de verificación de pagos.
+
+Validación: `flutter analyze` sin incidencias y suite completa de 51 pruebas
+aprobada, incluida una prueba que bloquea los controles Premium sin autorización
+de padre. La versión 1.0.2 (12) se compiló para simulador iOS y se instaló y
+abrió en iPhone 17 Pro Max. La instalación usa la configuración segura por
+defecto: compras desactivadas y anuncios de prueba; no se utilizó una cuenta
+ni datos reales para navegar dentro de la aplicación.

@@ -371,5 +371,16 @@
   "membershipRenewsOrEnds": "Se renueva o termina",
   "membershipTerms": "Si Premium se ofrece en una versión futura, Apple o Google procesarán el pago. Se renovará automáticamente salvo que lo canceles al menos 24 horas antes de que termine el periodo vigente. Puedes administrarlo o cancelarlo desde tu cuenta de Apple o Google. Se aplican el precio, los impuestos y la moneda de la tienda.",
   "legalSubscriptionTitle": "Suscripciones Premium",
-  "legalSubscriptionBody": "Una versión futura puede ofrecer suscripciones Premium opcionales para adultos. Premium elimina el banner del área de padres y no cambia los registros familiares, el acceso infantil ni las decisiones de dinero del mundo real. Apple o Google procesarían el pago y la renovación; la pantalla del plan mostrará el precio, la duración y cómo restaurar o cancelar."
+  "legalSubscriptionBody": "Premium es una suscripción opcional solo para cuentas adultas de padre o madre. Elimina el banner del área adulta confirmada y no cambia los registros familiares, el acceso infantil ni las decisiones de dinero del mundo real. Los niños nunca ven anuncios ni opciones de suscripción. Apple o Google procesa el pago y la renovación; la pantalla del plan muestra el precio de la tienda, la duración y cómo restaurar o cancelar.",
+  "premiumParentOnlyTitle": "Premium es para padres",
+  "premiumParentOnlyBody": "Solo un padre o madre adulto con sesión iniciada puede administrar el plan familiar. Los niños nunca ven opciones de suscripción ni anuncios.",
+  "premiumBenefitsTitle": "Qué incluye Premium",
+  "premiumBenefitNoAds": "Elimina el banner del área adulta de padres.",
+  "premiumBenefitChildren": "Los niños nunca ven anuncios ni opciones de suscripción.",
+  "premiumBenefitCore": "Las tareas, mesadas, metas y controles familiares siguen disponibles para todas las familias.",
+  "premiumBillingTitle": "Cobro, privacidad y ayuda",
+  "premiumStorePrice": "Antes de una compra futura, tu tienda de Apple o Google mostrará el precio final, la moneda, los impuestos y el periodo de cobro. ChoreJar no recibe los datos de tarjetas.",
+  "readPrivacyPolicy": "Leer política de privacidad",
+  "readTermsOfUse": "Leer términos de uso",
+  "legalOpenFailed": "No pudimos abrir ese documento. Inténtalo más tarde."
 }

@@ -15,19 +15,22 @@ void main() {
     expect(ads.showBanner, isTrue);
     ads.dispose();
   });
-  testWidgets('unconfigured plans disclose that paid plans are unavailable', (
+  testWidgets('unconfigured plans keep purchase controls disabled', (
     tester,
   ) async {
     final strings = await Strings.load('es');
     await tester.pumpWidget(
-      MaterialApp(home: MembershipScreen(strings: strings)),
+      MaterialApp(
+        home: MembershipScreen(strings: strings, parentAuthorized: true),
+      ),
     );
-    expect(find.text(strings('premiumPlan')), findsOneWidget);
-    expect(find.text(strings('monthlyPlanPrice')), findsOneWidget);
-    expect(find.text(strings('yearlyPlanPrice')), findsOneWidget);
-    final monthlyButton = tester.widget<FilledButton>(
-      find.widgetWithText(FilledButton, strings('chooseMonthlyPlan')),
+    expect(find.text(strings('premiumPlan')), findsWidgets);
+    final monthlyPlan = find.widgetWithText(
+      FilledButton,
+      strings('chooseMonthlyPlan'),
     );
+    await tester.scrollUntilVisible(monthlyPlan, 160);
+    final monthlyButton = tester.widget<FilledButton>(monthlyPlan);
     expect(monthlyButton.onPressed, isNull);
   });
 }

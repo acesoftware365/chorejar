@@ -371,5 +371,16 @@
   "membershipRenewsOrEnds": "Renews or ends",
   "membershipTerms": "If Premium is offered in a future release, payment is handled by Apple or Google. It renews automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel it in your Apple or Google account. Store price, tax and currency apply.",
   "legalSubscriptionTitle": "Premium subscriptions",
-  "legalSubscriptionBody": "A future version may offer optional Premium subscriptions for adults. Premium removes the parent-area banner and does not change family records, child access or real-world money decisions. Apple or Google would process payment and renewal; the in-app plan screen will show the current store price, duration and how to restore or cancel."
+  "legalSubscriptionBody": "Premium is an optional subscription for adult parent accounts only. It removes the banner from the confirmed adult parent area and does not change family records, child access or real-world money decisions. Children never see advertisements or subscription choices. Apple or Google processes payment and renewal; the plan screen shows the store price, duration and how to restore or cancel.",
+  "premiumParentOnlyTitle": "Premium is for parents",
+  "premiumParentOnlyBody": "Only a signed-in adult parent can manage the family plan. Children never see subscription choices or advertisements.",
+  "premiumBenefitsTitle": "What Premium includes",
+  "premiumBenefitNoAds": "Removes the banner from the adult parent area.",
+  "premiumBenefitChildren": "Children never see advertisements or subscription choices.",
+  "premiumBenefitCore": "Chores, allowances, goals and family controls remain available to every family.",
+  "premiumBillingTitle": "Billing, privacy and support",
+  "premiumStorePrice": "Before a future purchase, your Apple or Google store will show the final price, currency, tax and billing period. ChoreJar does not receive payment card details.",
+  "readPrivacyPolicy": "Read privacy policy",
+  "readTermsOfUse": "Read terms of use",
+  "legalOpenFailed": "We could not open that document. Please try again later."
 }
