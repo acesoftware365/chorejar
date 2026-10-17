@@ -41,6 +41,11 @@ class LegalPrivacyScreen extends StatelessWidget {
         body: t('legalAdsBody'),
       ),
       _LegalSection(
+        icon: Icons.workspace_premium_outlined,
+        title: t('legalSubscriptionTitle'),
+        body: t('legalSubscriptionBody'),
+      ),
+      _LegalSection(
         icon: Icons.manage_accounts_outlined,
         title: t('legalRightsTitle'),
         body: t('legalRightsBody'),

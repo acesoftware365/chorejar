@@ -14,6 +14,7 @@ import 'screens/dashboard.dart';
 import 'screens/welcome_flow.dart';
 import 'services/repository.dart';
 import 'services/regional_brand.dart';
+import 'services/membership.dart';
 import 'widgets/surfaces.dart';
 
 Future<void> main() async {
@@ -41,6 +42,9 @@ Future<void> main() async {
   } catch (_) {
     ready = false;
   }
+  // Starts the purchase listener before the first screen. It is inert unless a
+  // future release explicitly enables an HTTPS verifier and checkout flag.
+  unawaited(Membership.instance.start());
   runApp(ChoreJar(prefs: prefs, firebaseReady: ready));
 }
 

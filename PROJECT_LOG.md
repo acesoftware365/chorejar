@@ -1177,3 +1177,24 @@ World** al lanzamiento de producción `1.0.1 (11)`, y se confirmó el reenvío.
 Google Play muestra «Changes in review» mientras ejecuta sus comprobaciones
 automáticas. El lanzamiento sigue con rollout completo automático tras
 aprobación y no está publicado todavía.
+
+
+### 2026-10-16 — preparación técnica de ChoreJar Premium 1.0.2 (12)
+
+A petición del titular se preparó la siguiente fuente de desarrollo para un
+plan mensual de $0.99 USD y un plan anual de $9.99 USD. Se añadió la dependencia
+oficial `in_app_purchase` y una pantalla bilingüe de Premium para el área adulta.
+El beneficio definido es únicamente eliminar el banner del área de padres; el
+área infantil permanece sin anuncios y ningún plan cambia tareas, registros,
+controles infantiles ni decisiones de dinero real.
+
+El checkout permanece desactivado por defecto. El cliente sólo puede iniciar una
+compra si una compilación futura habilita `SUBSCRIPTIONS_ENABLED=true` y recibe
+un endpoint HTTPS en `SUBSCRIPTION_VERIFY_URL`. El recibo se manda al endpoint
+con el token de Firebase del padre; no se almacena en el dispositivo ni concede
+Premium localmente. Sólo una respuesta activa del verificador puede ocultar el
+banner. La implementación de servidor, secretos StoreKit/Google, productos de
+tiendas, pruebas sandbox y revisión de disclosures siguen pendientes y están
+documentados en `store_assets/monetization/1.0.2/`. Se actualizaron borradores
+de términos, privacidad y copia bilingüe. No se creó producto, cobro, ni se
+alteró la revisión mundial de Google Play 1.0.1 (11).

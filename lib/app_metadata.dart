@@ -2,4 +2,4 @@
 /// immediately identify the release installed on a device.
 ///
 /// Keep this value in sync with `pubspec.yaml` when cutting a release.
-const appReleaseLabel = '1.0.1 (11)';
+const appReleaseLabel = '1.0.2 (12)';

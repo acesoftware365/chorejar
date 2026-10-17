@@ -81,9 +81,13 @@ preparado para revisión y configurado gratuito en 175 países o regiones. Andro
 subida del propietario en `android/key.properties`; nunca permite la firma de
 depuración en release. iOS usa firma automática del equipo `3M9854JZ4Y` y
 requiere una identidad Apple Distribution y un perfil App Store válidos antes
-de archivar. Los planes de $0.99 mensual y $9.99 anual están documentados para
-una versión futura, pero no se activan hasta que el flujo de compra, restauración
-y derechos se implemente y revise en ambas tiendas.
+de archivar. La siguiente fuente de desarrollo usa `1.0.2+12` y prepara Premium mensual
+($0.99 USD) y anual ($9.99 USD). Incluye la compra/restauración oficial de
+StoreKit y Google Play Billing, pero checkout queda desactivado hasta que un
+verificador HTTPS de servidor, los productos de tienda y las pruebas sandbox
+estén completos. No se guarda un recibo ni un derecho Premium en el teléfono;
+el servidor debe validarlo para el adulto autenticado. La 1.0.1 (11) que está
+en revisión continúa gratuita y sin oferta de pago.
 
 ### Dos padres en una familia
 En una cuenta conectada, Ajustes → Acceso para dos padres permite al creador invitar una segunda cuenta con código privado de 10 minutos y un solo uso. El segundo adulto activa «Tengo una invitación de otro padre» al iniciar sesión o registrarse con su propio correo. Debe usar una cuenta que todavía no pertenezca a otra familia; no se fusionan familias existentes. Ambos administran los mismos niños, tareas y saldos. Solo el creador puede invitar y eliminar toda la familia. El segundo padre puede abandonar el acceso o eliminar únicamente su propia cuenta; los datos familiares se conservan. La demo local solo explica esta función.

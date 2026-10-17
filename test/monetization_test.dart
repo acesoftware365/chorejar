@@ -22,8 +22,12 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(home: MembershipScreen(strings: strings)),
     );
-    expect(find.text(strings('plansPending')), findsOneWidget);
-    expect(find.text(strings('membershipComingSoon')), findsOneWidget);
-    expect(find.text(strings('adReport')), findsOneWidget);
+    expect(find.text(strings('premiumPlan')), findsOneWidget);
+    expect(find.text(strings('monthlyPlanPrice')), findsOneWidget);
+    expect(find.text(strings('yearlyPlanPrice')), findsOneWidget);
+    final monthlyButton = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, strings('chooseMonthlyPlan')),
+    );
+    expect(monthlyButton.onPressed, isNull);
   });
 }
