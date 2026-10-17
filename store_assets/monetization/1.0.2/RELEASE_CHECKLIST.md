@@ -34,3 +34,19 @@ version 1.0.1 (11) stays free and must not expose a paid offer.
 
 These completed items do not enable purchases. The unchecked server, store and
 sandbox requirements above remain mandatory before any paid release.
+
+## App Review policy gates (2026-10-17)
+
+- [ ] Do not ship a disabled, hidden or dormant Premium path. Either complete
+      the production subscription flow or remove it entirely from the signed
+      binary and metadata.
+- [ ] Confirm the build is **not** submitted to the Kids Category / Made for
+      Kids, because the primary account is an adult parent and the parent area
+      may contain ads and subscriptions.
+- [ ] Re-run parent and child smoke tests on final signed archives: no banner,
+      plan, purchase or Restore controls are present in the child view.
+- [ ] Ensure final screenshots and Header/Search Results creative assets are
+      truthful, appropriate for all audiences and free of price, discount,
+      external website, unsupported claim or competing-platform content.
+- [ ] Use `store_assets/review/1.0.2/REVIEWER_NOTES_TEMPLATE.md` only after
+      replacing submission-time placeholders outside the repository.

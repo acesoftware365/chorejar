@@ -1262,3 +1262,20 @@ ni datos reales para navegar dentro de la aplicación.
 - Created English (`ChoreJar`), Latin American Spanish (`Mi Mesadita`) and Spanish for Spain (`Mi Paga`) variants.
 - Each final export was verified as flattened RGB PNG with no alpha channel.
 - Retained the original 16:9 and layout concepts in `alternatives/` without mixing them into the final upload set.
+
+### 2026-10-17 — audit against updated Apple App Review Guidelines
+
+Reviewed the revised App Review Guidelines before the next App Store delivery.
+The current 1.0.2 (12) source is a candidate for a future Premium release, but
+its checkout remains intentionally disabled until the authenticated server
+verifier, store products, native-store verification and sandbox evidence are
+complete. This is now a documented release gate: the app must never be submitted
+with a dormant or undocumented Premium purchase path.
+
+Created the practical audit at
+`store_assets/review/1.0.2/APP_REVIEW_GUIDELINE_AUDIT_2026-10-17.md` and a
+secret-free reviewer-notes template at
+`store_assets/review/1.0.2/REVIEWER_NOTES_TEMPLATE.md`. The audit records the
+private parent-controlled family model, the child ad/subscription safeguards,
+the correct non-Kids App Store positioning, privacy/data-disclosure checks, and
+the upload requirements for the localized Header and Search Results artwork.
