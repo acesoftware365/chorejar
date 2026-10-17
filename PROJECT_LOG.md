@@ -1317,3 +1317,11 @@ shows the prompt. See `store_assets/review/1.0.2/EXPORT_COMPLIANCE.md`.
 **Cargado:** Header y Search Results de App Store Connect para inglés (EE. UU.) y español (México). El IPA fue entregado a App Store Connect y quedó en procesamiento de Apple.
 **Google Play:** la producción `1.0.1 (11)` permanece en revisión. La nueva producción `1.0.2 (12)` requiere crear su entrega y retirar/sustituir la revisión previa antes de enviarla; esa acción no se ejecutó aún.
 **Comprobaciones anteriores vigentes:** `flutter analyze` sin problemas y `flutter test --concurrency=1` con 51 pruebas aprobadas antes de las compilaciones oficiales.
+
+### 2026-10-17 — entrega oficial de 1.0.2 (12) enviada a revisión
+
+**Google Play:** se retiró la entrega anterior 1.0.1 de revisión, se creó una entrega nueva de producción `1.0.2 (12)` con rollout completo, y se enviaron sus doce cambios a Google Play. Incluyen la versión, disponibilidad mundial configurada (177 países/regiones y resto del mundo), fichas en inglés y español latinoamericano, clasificación de contenido, audiencia de 6+ años, privacidad, declaración de anuncios y Data safety. Google muestra **Changes in review**; sus comprobaciones automáticas siguen en curso y, si finalizan correctamente, la revisión continúa sin una nueva acción.
+
+**App Store Connect:** se adjuntó el build `1.0.2 (12)`, se cargaron cinco capturas de flujo padre/niño para iPhone y cinco capturas adaptadas para iPad de 13 pulgadas, y se conservaron los artes de Header y Search Results en inglés (EE. UU.) y español (México). Se completaron URL de privacidad en ambos idiomas, derechos de contenido, información de contacto y notas para App Review. La declaración de privacidad fue publicada y Apple muestra la versión como **Waiting for Review**. La liberación automática después de la aprobación está activada.
+
+**Alcance presentado:** organizador familiar privado de tareas, registros de mesada y metas de ahorro. No procesa ni mueve dinero. La experiencia infantil vinculada no contiene anuncios ni compras; los anuncios de banner se limitan al área adulta. Premium, precios, compra y restauración permanecen fuera de la versión 1.0.2 hasta que los productos y la verificación segura estén listos.
