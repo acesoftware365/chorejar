@@ -1124,3 +1124,26 @@ vigentes y cree o conceda acceso al registro de App Store Connect de
 afirmó que la app esté publicada o enviada a revisión. El detalle operativo y
 las declaraciones de alcance quedan en
 `store_assets/review/1.0.1/STORE_SUBMISSION_STATUS.md`.
+
+### 2026-10-16 — carga de App Store Connect y conciliación de privacidad
+
+El AAB `1.0.1 (11)` quedó cargado en la entrega de producción de Google Play
+como borrador con publicación automática y alcance inicial de Estados Unidos;
+la acción final de envío a revisión se reserva para la confirmación explícita
+del titular. El IPA `1.0.1 (11)` de ChoreJar fue entregado a App Store Connect
+y quedó disponible para asociarlo a la versión. Se cargaron cinco capturas de
+iPhone con Dynamic Island (tamaño de Apple) para English (U.S.) y cinco para
+Spanish (Mexico); representan las áreas de padre y niño, tareas, dinero y
+meta.
+
+Se revisó el manifiesto de privacidad de Google Mobile Ads incluido en el IPA
+y se actualizó la hoja `APP_STORE_CONNECT_ANSWERS.md` con el inventario de
+once tipos de datos declarado en App Store Connect. La app configura anuncios
+no personalizados, tratamiento de edad infantil y desactiva el same-app key
+de iOS; esa configuración debe mantenerse o volver a declararse antes de cada
+nueva entrega. El build requiere completar la respuesta de exportación antes
+de adjuntarlo. La inspección posterior encontró `openssl_grpc.framework`,
+incorporado transitivamente por Firebase/Firestore. Por ello no se debe
+declarar que el IPA usa exclusivamente cifrado del sistema operativo: la
+clasificación o documentación aplicable debe confirmarse con el titular antes
+de enviar la versión.

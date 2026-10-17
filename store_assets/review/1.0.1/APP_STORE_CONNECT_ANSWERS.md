@@ -42,16 +42,19 @@ conservative inventory and compare it with Xcode's final privacy report:
 | Identifiers → User ID | Firebase Authentication | App functionality, account management | Yes | No |
 | User Content → Other User Content | Family-entered nicknames, chores, instructions, goals, notes | App functionality | Yes, private family account | No |
 | Financial Info → Other Financial Information | Parent-entered allowance and money records | App functionality | Yes, private family account | No |
-| Location → Coarse Location | Google Mobile Ads IP-based estimate | Third-party advertising, analytics, fraud prevention | Per SDK practice | No, with child age treatment |
-| Identifiers → Device ID | Google Mobile Ads SDK | Third-party advertising, analytics, fraud prevention | Per SDK practice | No, with child age treatment |
-| Usage Data → Product Interaction | Google Mobile Ads SDK | Third-party advertising, analytics, fraud prevention | Per SDK practice | No, with child age treatment |
-| Diagnostics → Crash Data / Performance Data | Google Mobile Ads SDK | Third-party advertising, analytics, fraud prevention | Per SDK practice | No, with child age treatment |
+| Location → Coarse Location | Google Mobile Ads IP-based estimate | Analytics, developer advertising or marketing, third-party advertising | Yes | No, with child age treatment and non-personalized requests |
+| Identifiers → Device ID | Google Mobile Ads SDK | Analytics, developer advertising or marketing, third-party advertising | Yes | No, with child age treatment, non-personalized requests, and the iOS same-app key disabled |
+| Usage Data → Product Interaction | Google Mobile Ads SDK | Analytics, developer advertising or marketing, third-party advertising | Yes | No, with child age treatment and non-personalized requests |
+| Usage Data → Advertising Data | Google Mobile Ads SDK privacy manifest | Analytics, developer advertising or marketing, third-party advertising | Yes | No, with child age treatment and non-personalized requests |
+| Diagnostics → Crash Data | Google Mobile Ads SDK privacy manifest | Analytics | No | No |
+| Diagnostics → Performance Data | Google Mobile Ads SDK privacy manifest | Analytics, developer advertising or marketing, third-party advertising | No | No |
+| Diagnostics → Other Diagnostic Data | Google Mobile Ads SDK privacy manifest | Analytics, developer advertising or marketing, third-party advertising | No | No |
 
-Do not claim that App Tracking Transparency is requested or that data is used
-for tracking. This release uses child age treatment, non-personalized ad
+Do not claim that App Tracking Transparency is requested or that the app
+tracks users. This release uses child age treatment, non-personalized ad
 requests, disables the iOS same-app key, and does not include an ATT prompt.
-If the final privacy report or Google Mobile Ads account configuration changes
-that fact, stop and revise the form and code before submission.
+The App Store Connect form must be reconciled with the final binary and the
+current Google Mobile Ads SDK privacy manifest before every future submission.
 
 Use:
 
@@ -69,6 +72,10 @@ required. A reviewer can make a parent account in the app.
 ## Export compliance and rights
 
 Complete Apple’s export-compliance questionnaire from the final IPA and the
-account holder’s business facts. Do not guess an encryption answer. Confirm
-that the account holder has the right to submit the ChoreJar name, jar artwork,
-source code, and marketing graphics before pressing Submit for Review.
+account holder’s business facts. Do not guess an encryption answer: the final
+IPA contains Firebase/Firestore's `openssl_grpc.framework`, so it is not
+accurate to describe the binary as using only the operating system's
+encryption. Confirm the applicable classification or documentation with the
+account holder before selecting an answer. Also confirm that the account holder
+has the right to submit the ChoreJar name, jar artwork, source code, and
+marketing graphics before pressing Submit for Review.

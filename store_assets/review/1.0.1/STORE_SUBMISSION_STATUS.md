@@ -33,22 +33,32 @@ they are an adult and opens the parent area.
 - IARC was updated for the 1.0.1 scope: no cash rewards, payment transfers or
   financial products. The resulting rating is suitable for the selected mixed
   age groups.
+- The signed AAB is uploaded to the Google Play production release. Release
+  notes in en-US and es-419, full rollout after approval, and the initial
+  United States availability are saved. Google Play reports the submission as
+  **In review** as of October 16, 2026; it is not yet published.
+- The App Store Connect record is **ChoreJar: Family Chores** (Apple ID
+  `6823823108`) and its iOS 1.0.1 page is in Prepare for Submission. The IPA
+  1.0.1 (11) was delivered. English (U.S.) and Spanish (Mexico) metadata and
+  five App Store compliant iPhone screenshots for each localization are saved.
 
 ## Account-holder actions before review
 
-1. **Google Play Console:** personally review and complete the Families,
-   target-audience and Data safety declarations for the final binary. Play
-   requires the account holder to certify compliance with applicable
-   child-privacy laws for the app, SDKs and advertisements. The selected
-   consecutive groups are 6–8, 9–12, 13–15, 16–17 and 18+, never 5 and under.
-2. **Google Play Console:** upload the listed AAB to the production release,
-   complete its release notes, review automated checks, and send the saved
-   changes for review only after the preceding certification is true.
-3. **Apple Developer:** the Legal Account Holder must accept the current Apple
-   Developer Program License Agreement and Paid Applications Schedule. Those
-   agreements cannot be accepted by a delegate.
-4. **App Store Connect:** create or grant access to the record for
-   `com.liisgo.chorejar`, then upload the IPA, select build 11, apply the
-   English/Spanish metadata and App Privacy answers, and submit for App Review.
-5. Recheck Data safety and App Privacy if the SDK inventory, advertising setup,
-   account deletion behavior or final signed binary changes.
+1. **Apple App Review contact:** provide a contact phone number and authorize
+   submitting it to Apple with the review notes. The sign-in requirement should
+   be turned off because a reviewer can create any parent account in the app.
+2. **Apple content rights:** the account holder must confirm LIISGO LLC owns
+   or is licensed to distribute the ChoreJar name, source code, jar artwork,
+   screenshots and other marketing graphics before declaring Content Rights.
+3. **Apple export compliance:** the IPA includes
+   `openssl_grpc.framework` through Firebase/Firestore. Confirm the applicable
+   export classification or required documentation; do not claim the IPA uses
+   only Apple system encryption. Select build 11 only after its compliance
+   state is resolved.
+4. **Apple availability and price:** set the free price and confirm the
+   intended territories before submission. The matching conservative launch
+   choice is United States only.
+5. Publish App Privacy and submit the selected build only after the preceding
+   items are confirmed. Recheck Data safety and App Privacy if the SDK
+   inventory, advertising setup, account deletion behavior or final signed
+   binary changes.
