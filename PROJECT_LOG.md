@@ -1198,3 +1198,29 @@ tiendas, pruebas sandbox y revisión de disclosures siguen pendientes y están
 documentados en `store_assets/monetization/1.0.2/`. Se actualizaron borradores
 de términos, privacidad y copia bilingüe. No se creó producto, cobro, ni se
 alteró la revisión mundial de Google Play 1.0.1 (11).
+
+### 2026-10-16 — validación de compilación de ChoreJar Premium 1.0.2 (12)
+
+La fuente de desarrollo Premium se validó sin activar compras ni modificar la
+entrega 1.0.1 (11) que Google Play está revisando. `flutter analyze` no reportó
+incidencias y la suite completa aprobó 50 pruebas. La compilación Android de
+depuración terminó correctamente e integra los adaptadores oficiales de Google
+Play Billing a través de `in_app_purchase`.
+
+La compilación para simulador iOS produjo
+`build/ios/iphonesimulator/Runner.app`. Su `Info.plist` confirma
+`CFBundleIdentifier com.liisgo.chorejar`, `CFBundleShortVersionString 1.0.2` y
+`CFBundleVersion 12`. Durante la validación, Xcode 27.0 expuso un problema
+conocido de la herramienta Flutter 3.38.7: `lipo -verify_arch` ya requiere una
+arquitectura por invocación. Se aplicó el ajuste de compatibilidad recomendado
+por Flutter sólo a una copia temporal de la herramienta para compilar y se
+restauró inmediatamente después; el repositorio de ChoreJar no depende de ese
+cambio. Antes de un archivo iOS de distribución, actualizar Flutter a una
+versión que incluya la corrección o repetir la validación con la compatibilidad
+documentada.
+
+No se crearon productos en App Store Connect o Google Play, no se habilitó
+`SUBSCRIPTIONS_ENABLED`, no se configuró `SUBSCRIPTION_VERIFY_URL` y no existe
+una forma de cobro activa en esta versión. El siguiente paso obligatorio sigue
+siendo el verificador de servidor autenticado, las pruebas sandbox completas y
+la creación/revisión conjunta de los productos y textos de las tiendas.
