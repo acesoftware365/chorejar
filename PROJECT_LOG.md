@@ -1279,3 +1279,18 @@ secret-free reviewer-notes template at
 private parent-controlled family model, the child ad/subscription safeguards,
 the correct non-Kids App Store positioning, privacy/data-disclosure checks, and
 the upload requirements for the localized Header and Search Results artwork.
+
+### 2026-10-17 — clean Android test build for 1.0.2 (12)
+
+A clean dependency resolution, static analysis and full Flutter test suite were
+run for the current source. `flutter analyze` reported no issues and all 51
+tests passed. The Firebase permission smoke test completed 58 checks covering
+parent/child isolation, invitations, QR pairing, goals, task approval, ledger
+immutability and revocation; it cleaned all temporary accounts/documents.
+
+The debug Android APK was built, inspected as `com.liisgo.chorejar` version
+`1.0.2 (12)`, verified to use Google’s Android test AdMob application ID, and
+launched on the active Android emulator without a startup crash. Its test copy
+and SHA-256 are documented in
+`store_assets/validation/1.0.2/TEST_BUILD_2026-10-17.md`. Premium remained
+disabled and no store submission or production upload was performed.

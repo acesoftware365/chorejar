@@ -2,19 +2,22 @@ import 'package:chorejar/services/membership.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('Premium catalog uses stable store identifiers and reference prices', () {
-    expect(PremiumPlan.values, hasLength(2));
-    expect(PremiumPlan.monthly.id, 'chorejar_premium_monthly');
-    expect(PremiumPlan.monthly.cadence, 'monthly');
-    expect(PremiumPlan.monthly.referencePrice, r'$0.99 USD');
-    expect(PremiumPlan.yearly.id, 'chorejar_premium_yearly');
-    expect(PremiumPlan.yearly.cadence, 'yearly');
-    expect(PremiumPlan.yearly.referencePrice, r'$9.99 USD');
-    expect(PremiumPlan.ids, containsAll(<String>[
-      PremiumPlan.monthly.id,
-      PremiumPlan.yearly.id,
-    ]));
-  });
+  test(
+    'Premium catalog uses stable store identifiers and reference prices',
+    () {
+      expect(PremiumPlan.values, hasLength(2));
+      expect(PremiumPlan.monthly.id, 'chorejar_premium_monthly');
+      expect(PremiumPlan.monthly.cadence, 'monthly');
+      expect(PremiumPlan.monthly.referencePrice, r'$0.99 USD');
+      expect(PremiumPlan.yearly.id, 'chorejar_premium_yearly');
+      expect(PremiumPlan.yearly.cadence, 'yearly');
+      expect(PremiumPlan.yearly.referencePrice, r'$9.99 USD');
+      expect(
+        PremiumPlan.ids,
+        containsAll(<String>[PremiumPlan.monthly.id, PremiumPlan.yearly.id]),
+      );
+    },
+  );
 
   test('default builds cannot start a subscription checkout', () {
     expect(MembershipConfiguration.enabled, isFalse);
