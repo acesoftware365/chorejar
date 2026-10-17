@@ -34,11 +34,12 @@ they are an adult and opens the parent area.
   financial products. The resulting rating is suitable for the selected mixed
   age groups.
 - The signed AAB is uploaded to the Google Play production release. Release
-  notes in en-US and es-419, full rollout after approval, and the initial
-  United States availability are saved. Google Play reports the submission as
-  **In review** as of October 16, 2026; it is not yet published. Expanding
-  Google Play to additional territories now would require withdrawing that
-  in-review submission and submitting it again.
+  notes in en-US and es-419 and full rollout after approval are saved. On
+  October 16, 2026, the account holder authorized withdrawing the initial
+  United States-only review, expanding the production target to all 177 listed
+  countries or regions plus **Rest of World**, and resubmitting. Google Play
+  now shows **Changes in review** while its automated checks run; it is not yet
+  published.
 - The App Store Connect record is **ChoreJar: Family Chores** (Apple ID
   `6823823108`) and its iOS 1.0.1 page is in Prepare for Submission. The IPA
   1.0.1 (11) was delivered. English (U.S.) and Spanish (Mexico) metadata and
@@ -50,9 +51,9 @@ they are an adult and opens the parent area.
 
 ## Account-holder actions before review
 
-1. **Apple App Review contact:** provide a contact phone number and authorize
-   submitting it to Apple with the review notes. The sign-in requirement should
-   be turned off because a reviewer can create any parent account in the app.
+1. **Apple App Review contact:** authorize submitting a review contact and the
+   prepared review notes. The sign-in requirement should be turned off because
+   a reviewer can create any parent account in the app.
 2. **Apple content rights:** the account holder must confirm LIISGO LLC owns
    or is licensed to distribute the ChoreJar name, source code, jar artwork,
    screenshots and other marketing graphics before declaring Content Rights.

@@ -1168,3 +1168,12 @@ planes pagados aún no están disponibles y no contiene StoreKit ni Google Play
 Billing. No se crearon productos de compra ni se presentó una oferta al
 cliente: primero hay que implementar compra, restauración, derechos y textos
 de renovación/cancelación, probarlos y remitir un nuevo build.
+
+### 2026-10-16 — reenvío mundial a Google Play
+
+Con autorización explícita, se retiró la revisión de la entrega inicial de
+Google Play, se añadieron las 177 regiones disponibles y la opción **Rest of
+World** al lanzamiento de producción `1.0.1 (11)`, y se confirmó el reenvío.
+Google Play muestra «Changes in review» mientras ejecuta sus comprobaciones
+automáticas. El lanzamiento sigue con rollout completo automático tras
+aprobación y no está publicado todavía.
