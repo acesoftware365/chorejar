@@ -1253,3 +1253,12 @@ de padre. La versión 1.0.2 (12) se compiló para simulador iOS y se instaló y
 abrió en iPhone 17 Pro Max. La instalación usa la configuración segura por
 defecto: compras desactivadas y anuncios de prueba; no se utilizó una cuenta
 ni datos reales para navegar dentro de la aplicación.
+
+
+### 2026-10-17 — App Store creative assets for discovery
+
+- Prepared polished, localized artwork for the new **Header** and **Search Results** surfaces in App Store Connect.
+- Final ready-to-upload Header files use Apple’s 21:9, 3840 × 1646 format; final Search Results files use its 3:2, 3840 × 2560 format.
+- Created English (`ChoreJar`), Latin American Spanish (`Mi Mesadita`) and Spanish for Spain (`Mi Paga`) variants.
+- Each final export was verified as flattened RGB PNG with no alpha channel.
+- Retained the original 16:9 and layout concepts in `alternatives/` without mixing them into the final upload set.
