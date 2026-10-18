@@ -1,34 +1,41 @@
 # Future subscription plan
 
-This is a product plan for the next post-1.0.1 release. It is not enabled in
-ChoreJar 1.0.1, is not listed to customers, and is not configured as a
-purchasable product in App Store Connect or Google Play Console.
+This is the product plan for a future post-1.0.2 release. Checkout remains
+disabled in ChoreJar 1.0.2. The app does not grant a paid entitlement until the
+server verifier, store configuration, and release testing have completed.
 
-The 1.0.2 (12) source now contains a disabled purchase client, restore flow,
+Draft product configuration exists in App Store Connect for both plans. In
+Google Play Console, the monthly subscription metadata exists as a draft, but
+Google currently rejects creation of its base plan with a generic save failure.
+There are no active, purchasable subscriptions in either store.
+
+The 1.0.2 (12) source contains a disabled purchase client, restore flow,
 Premium banner suppression, bilingual plan UI, and an HTTPS verifier contract.
-It does not enable checkout or grant an entitlement until the server and both
-store products complete the release gates.
 
-| Product | Reference price (USD) | Cadence | Proposed identifier |
+| Product | Reference price (USD) | Cadence | Identifier |
 | --- | ---: | --- | --- |
 | ChoreJar monthly | $0.99 | Monthly | `chorejar_premium_monthly` |
 | ChoreJar yearly | $9.99 | Yearly | `chorejar_premium_yearly` |
 
-Storefront prices, taxes, currency conversions, introductory offers and
-eligibility must be set by the account holder in each store when the products
-are created. The price references above do not create a charge or an offer.
+Premium is a parent-only benefit: it removes banner ads from the parent area.
+Child profiles are always ad-free and never show purchases or subscription
+prompts. Storefront prices, taxes, currency conversions, introductory offers,
+and eligibility are controlled by the stores when products are activated. The
+reference prices above do not create a charge or an offer.
 
 ## Required before activation
 
-1. Keep the paid benefit truthful: Premium removes the adult parent-area
+1. Resolve the Google Play Console save failure and finish the matching annual
+   plan without activating either product.
+2. Keep the paid benefit truthful: Premium removes the adult parent-area
    banner; it does not alter child access, family records or money decisions.
-2. Implement and deploy the authenticated server verifier described in
+3. Implement and deploy the authenticated server verifier described in
    `1.0.2/VERIFICATION_PROTOCOL.md`; never trust an on-device receipt.
-3. Test sandbox purchase, restore, renewal, expiry, refund and account changes
+4. Test sandbox purchase, restore, renewal, expiry, refund and account changes
    on iOS and Android.
-4. Deploy the prepared subscription terms and update final privacy/data safety
+5. Deploy the prepared subscription terms and update final privacy/data safety
    disclosures to match the deployed verifier.
-5. Create the products, localized names/descriptions and review screenshots in
-   both stores only after the verifier and release build are ready.
-6. Submit a new build and both products for store review. Never activate a
+6. Create the remaining store localizations and review materials only after the
+   verifier and release build are ready.
+7. Submit a new build and both products for store review. Never activate a
    product for a build that says paid plans are unavailable.

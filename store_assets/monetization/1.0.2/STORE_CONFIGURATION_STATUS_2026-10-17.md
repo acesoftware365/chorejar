@@ -19,34 +19,39 @@ localizations are present. Family Sharing is not enabled. The first subscription
 group must be submitted with a future app version after the purchase-verification
 release gates are complete.
 
-## Google Play Console — draft blocked by console save failure
+## Google Play Console — base-plan creation blocked
 
-Subscription product `chorejar_premium_monthly` exists as a draft. Its planned
-base plan is:
+Subscription product `chorejar_premium_monthly` exists as a draft with English
+benefits and a parent-only description. Its plan was tested using both of these
+configurations:
 
-- Base plan ID: `monthly`
-- Type: auto-renewing, monthly
-- Grace period: 7 days; automatic account hold
-- Availability: all 175 Play countries/regions
-- Reference price: USD 0.99, with Play-calculated local prices
-- Tag: `monthly`
+| Test | Base plan | Market availability | Price |
+| --- | --- | --- | --- |
+| Worldwide | Auto-renewing monthly; 7-day grace period; automatic account hold | 175 Play countries/regions | USD 0.99 with Play-calculated local prices |
+| Minimal isolation | Auto-renewing monthly; 7-day grace period; automatic account hold | United States only | USD 0.99 |
 
-On 2026-10-17, Google Play Console calculated and displayed all regional
-prices, but rejected the Save action repeatedly with only the generic message
-`Your changes couldn't be saved`. The console supplied no field-level error.
-The base plan therefore remains unsaved and inactive. The annual product and
-base plan have deliberately not been created until this console-level save
-failure is resolved.
+On 2026-10-17, Google Play Console rejected **both** Save actions with only the
+generic message `Your changes couldn't be saved`. This remained true after
+reloading the product page and removing optional tags. The console supplied no
+field-level error, so the failure is independent of worldwide availability,
+regional pricing, and the optional tag. The base plan was discarded after each
+failed attempt and remains unsaved and inactive. No annual Google product was
+created, avoiding an incomplete storefront.
+
+The Console's Monetization setup screen exposes no outstanding required field.
+Alternative billing is not configured and is not required for ordinary Google
+Play Billing. Real-time developer notifications remain off until the server-side
+verifier and a Pub/Sub endpoint are ready.
 
 ## Remaining release gates
 
-1. Resolve the Google Play Console save failure and create the annual draft:
-   `chorejar_premium_yearly`, base plan `yearly`, auto-renewing annually,
-   all supported regions, and USD 9.99 reference price.
+1. Resolve the Google Play Console base-plan save failure before creating the
+   annual draft: `chorejar_premium_yearly`, base plan `yearly`, auto-renewing
+   annually, all supported regions, and USD 9.99 reference price.
 2. Implement, deploy, and test authenticated server-side Apple and Google
    receipt verification and entitlement updates.
-3. Run sandbox/license-testing coverage for purchase, restore, renewal,
-   expiry, refund, cancellation, account change, and offline recovery.
+3. Run sandbox/license-testing coverage for purchase, restore, renewal, expiry,
+   refund, cancellation, account change, and offline recovery.
 4. Ship a new signed build with the purchase feature enabled only after the
    verifier and both store products are ready; submit the new build and Apple
    subscription group together for review.
