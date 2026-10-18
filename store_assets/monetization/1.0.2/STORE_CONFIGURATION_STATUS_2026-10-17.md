@@ -43,6 +43,16 @@ Alternative billing is not configured and is not required for ordinary Google
 Play Billing. Real-time developer notifications remain off until the server-side
 verifier and a Pub/Sub endpoint are ready.
 
+On 2026-10-17, a Google Play support ticket was submitted under Monetization >
+Managing monetization > subscriptions. It is `Pending` and its case ID is still
+pending; Google says it will reply by email within two business days, though
+some cases may take longer. The request includes the exact steps, failed
+worldwide and U.S.-only tests, and asks whether the app's initial production
+review status is the cause. Play Console's AI recommendation claimed that the
+first base plan cannot be saved until the app is published or available on an
+internal test track. This is an unverified explanation, not a confirmed policy
+or a reason to alter the release currently in review.
+
 ## Remaining release gates
 
 1. Resolve the Google Play Console base-plan save failure before creating the
