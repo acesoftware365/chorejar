@@ -13,8 +13,10 @@ hold, transfer, withdraw, or pay money.
 ### Parent flow
 
 1. From the welcome screen, select **I’m a parent** / **Soy mamá o papá**.
-2. Create a parent account with the reviewer’s email, or use this current
-   review account: `[review account supplied at submission]`.
+2. Sign in with the working demo parent account entered in
+   **App Review Information → Sign-In Information**. Mark **Sign-in required**
+   and enter its user name and password there. Do not rely on the reviewer
+   creating a new account.
 3. Confirm the adult-parent prompt, add a child profile, then add a chore,
    an allowance record, or a savings goal.
 4. Open **Settings → Plan and ads** to verify the parent-only ad-reporting
@@ -50,3 +52,12 @@ in this build.
 - Terms of use: `https://chorejar-liisgo-2026.web.app/terms`
 - Support: `https://chorejar-liisgo-2026.web.app/support`
 - Review contact: `[name, email and telephone entered in App Store Connect]`
+
+## Before resubmitting a rejected version
+
+1. Sign in to the submitted build using the exact demo credentials entered in
+   App Store Connect, and verify that the parent home screen loads.
+2. Confirm the account remains active for the entire review and does not
+   require two-factor authentication, a one-time code, or a real payment method.
+3. Save **App Review Information**, then resubmit the rejected item from the
+   **App Review** submission page. Verify the new review status.
