@@ -1,5 +1,7 @@
-# ChoreJar 1.0.2 (12) — Release notes
+# ChoreJar 1.0.2 (13) — Release notes
 
+- Fixed iPad email and password fields losing focus when the keyboard opens, in both sign-in and account creation.
+- Kept country and currency selectors usable in compact iPad landscape layout.
 - Refined the parent sign-in and account-creation flow for phones, tablets, and foldable displays.
 - Made child device linking clearer with one-time QR codes, secure links, and pairing codes that work over Wi-Fi or different networks.
 - Improved parent and child money and goal progress displays.
@@ -13,7 +15,7 @@ ChoreJar is a household organizer and record keeper. A parent manually records a
 ## Submission fields
 
 - Version: 1.0.2
-- Build: 12
+- Build: 13
 - Primary category: Lifestyle (parenting)
 - Primary intended user: parent or caregiver age 18+; the linked child profile is parent-controlled and has no ads, account creation, money controls, or subscription checkout.
 - Export compliance: `ITSAppUsesNonExemptEncryption=false`; see `store_assets/review/1.0.2/EXPORT_COMPLIANCE.md`.

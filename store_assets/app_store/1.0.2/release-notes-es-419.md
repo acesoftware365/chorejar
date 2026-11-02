@@ -1,5 +1,7 @@
-# Mi Mesadita 1.0.2 (12) — Notas de lanzamiento
+# Mi Mesadita 1.0.2 (13) — Notas de lanzamiento
 
+- Corregimos la pérdida de foco de los campos de correo y contraseña al abrir el teclado en iPad, tanto al entrar como al crear una cuenta.
+- Ajustamos los selectores de país y moneda para el diseño compacto del iPad horizontal.
 - Mejoramos el inicio de sesión y creación de cuentas para teléfonos, tabletas y pantallas plegables.
 - Aclaramos la vinculación de dispositivos infantiles mediante QR, enlace seguro o código de un solo uso que funciona por Wi-Fi o redes diferentes.
 - Mejoramos la visualización del progreso de dinero y metas para padres y niños.

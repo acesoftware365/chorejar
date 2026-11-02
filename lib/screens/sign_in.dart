@@ -724,9 +724,13 @@ class _SignInState extends State<SignIn> {
     top: false,
     child: LayoutBuilder(
       builder: (context, constraints) {
+        // The keyboard shrinks the Scaffold body, but not the device window.
+        // Classifying the layout from maxHeight made portrait iPads switch to
+        // the wide Row as soon as the keyboard opened. That replaced the
+        // focused TextField, immediately dismissing the keyboard again.
+        final viewport = MediaQuery.sizeOf(context);
         final wide =
-            constraints.maxWidth >= 440 &&
-            constraints.maxWidth > constraints.maxHeight * 1.08;
+            viewport.width >= 440 && viewport.width > viewport.height * 1.08;
         final short = constraints.maxHeight < 500;
         // Duo's closed display is tall enough to look like a phone, but it
         // leaves much less vertical room than a regular iPhone.  Keep the
@@ -850,7 +854,7 @@ class _SignInState extends State<SignIn> {
     final inputHeight = sketchNarrow
         ? 48.0
         : tightWide
-        ? 46.0
+        ? 48.0
         : compact
         ? 50.0
         : 54.0;
@@ -1022,6 +1026,7 @@ class _SignInState extends State<SignIn> {
                 SizedBox(
                   height: inputHeight,
                   child: TextField(
+                    key: const Key('parent-email-field'),
                     controller: email,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
@@ -1057,6 +1062,7 @@ class _SignInState extends State<SignIn> {
                 SizedBox(
                   height: inputHeight,
                   child: TextField(
+                    key: const Key('parent-password-field'),
                     controller: password,
                     obscureText: !showPassword,
                     textInputAction: TextInputAction.done,
