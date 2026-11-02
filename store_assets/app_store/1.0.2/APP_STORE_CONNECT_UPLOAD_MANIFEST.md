@@ -1,4 +1,4 @@
-# App Store Connect upload manifest — 1.0.2 (12)
+# App Store Connect upload manifest — 1.0.2 (13)
 
 ## Product-page assets uploaded on 2026-10-17
 
@@ -7,10 +7,10 @@
 
 The current App Store Connect page has English (U.S.) and Spanish (Mexico) localized. Do not upload Spanish (Spain) creative artwork until that localization is enabled.
 
-## Remaining before App Review submission
+## Review status on 2026-11-02
 
-- Attach the processed 1.0.2 (12) IPA build.
-- Attach current, truthful screenshots from the finished 1.0.2 build for every required iPhone display size.
-- Enter review contact information and review access in App Store Connect without putting those credentials in this repository.
-- Recheck App Privacy, age rating, availability, and account-deletion details against the signed build.
-- Keep automatic release selected.
+- The 1.0.2 (13) signed IPA was delivered through Transporter and processed by Apple.
+- Build 13 replaced build 12 on the existing 1.0.2 version after the iPad login keyboard fix.
+- The existing reviewer account and access instructions were retained in App Store Connect; credentials are not stored in this repository.
+- Submission `a62da092-2308-40d5-aba1-08f62d90eb3c` shows **Waiting for Review** for 1.0.2 (13).
+- Automatic release after approval remains selected. The update is not approved or published yet.

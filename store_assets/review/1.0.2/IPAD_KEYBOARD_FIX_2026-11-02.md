@@ -32,8 +32,13 @@ Validation before upload:
   set to false; `codesign --verify --deep --strict` passed. No app extension is
   present.
 - Transporter delivered build 13 to App Store Connect on 2026-11-02. Apple
-  showed the upload as **Processing**. Selection and resubmission remain to be
-  recorded once processing finishes.
+  finished processing it, and build 13 replaced build 12 on the 1.0.2 version.
+- The App Review notes were updated with the iPad-specific cause, fix, and
+  simulator validation; the existing review login details were retained in
+  App Store Connect and are not stored in this repository.
+- Submission `a62da092-2308-40d5-aba1-08f62d90eb3c` was resubmitted on
+  2026-11-02. App Store Connect shows **Waiting for Review** for iOS App
+  1.0.2 (13). This does not mean the update has been approved or published.
 
 This change requires a new binary. Keep the visible version at 1.0.2 and use
 build 13. Do not resubmit build 12.
